@@ -1,0 +1,9 @@
+# Raw inputs (drafts, original PDF/video) — not part of the website
+_source/
+
+# macOS / editor clutter
+.DS_Store
+.vscode/
+
+# Photo drop folder: processed copies go into assets/media/
+img/

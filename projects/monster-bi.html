@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monster BI Case Study | Tunir Mitra</title>
+  <meta name="description" content="Monster Beverage analytics roadmap and Power BI dashboard: a strategic BI consulting case study." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Inter:wght@400;500&family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+  <link rel="stylesheet" href="../assets/css/case-study.css" />
+  <link rel="stylesheet" href="../assets/css/themes/monster-bi.css" />
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body class="page-case theme-monster">
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <a href="../index.html" class="nav__brand">Tunir Mitra</a>
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav__links">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About Me</a>
+      <a href="../index.html#experience">Experience</a>
+      <div class="dropdown">
+        <button class="dropdown__trigger" aria-haspopup="true">Projects <span class="chev">&#9662;</span></button>
+        <div class="dropdown__menu">
+          <a href="uncut-diamonds.html">Uncut Diamonds (NGO)</a>
+          <a href="husky-market.html">The Husky MarketPlace</a>
+          <a href="monster-bi.html" aria-current="page">Monster BI Case Study</a>
+          <a href="amazon-rufus.html">Amazon AI Case Study</a>
+          <a href="mercedes.html">Mercedes Case Study</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="cs-layout">
+
+    <!-- ============ INTRO (hero + meta) ============ -->
+    <div class="cs cs-intro">
+      <section class="cs-hero mb-hero">
+        <div class="mb-hero__art" aria-hidden="true"></div>
+        <canvas class="mb-particles" aria-hidden="true"></canvas>
+        <div class="cs-hero__content">
+          <p class="cs-eyebrow">Strategic BI Consulting — Monster Beverage Corporation</p>
+          <h1>Analytics <em>Roadmap</em></h1>
+          <p class="mb-hero__sub">Powering Decisions. Fueling Growth.</p>
+          <div class="mb-hero__stats">
+            <div class="mb-hero__stat"><div class="mb-count">$8.29B</div><div class="mb-hero__label">2025 Net Sales</div></div>
+            <div class="mb-hero__stat"><div class="mb-count">43%</div><div class="mb-hero__label">International Revenue</div></div>
+            <div class="mb-hero__stat"><div class="mb-count">100+</div><div class="mb-hero__label">Bottling Partners</div></div>
+            <div class="mb-hero__stat"><div class="mb-count">55%+</div><div class="mb-hero__label">Gross Margin</div></div>
+          </div>
+          <a href="#mission" class="cs-btn">Explore the Roadmap</a>
+        </div>
+      </section>
+
+      <div class="cs-meta">
+        <div class="cs-meta__item">
+          <div class="cs-meta__label">Client / Context</div>
+          <div class="cs-meta__value">Monster Beverage Corporation</div>
+        </div>
+        <div class="cs-meta__item">
+          <div class="cs-meta__label">Engagement</div>
+          <div class="cs-meta__value">Strategic BI Consulting</div>
+        </div>
+        <div class="cs-meta__item">
+          <div class="cs-meta__label">Deliverables</div>
+          <div class="cs-meta__value">Analytics Roadmap + Power BI Dashboard</div>
+        </div>
+        <div class="cs-meta__item">
+          <div class="cs-meta__label">Team</div>
+          <div class="cs-meta__value">Tunir Mitra · Simran Kaur · Ben Cheng</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Drag to resize the right panel (desktop) -->
+    <div class="cs-resizer" role="separator" aria-orientation="vertical" aria-label="Resize panel" tabindex="0" title="Drag to resize · double-click to reset">
+      <span class="cs-resizer__grip"></span>
+    </div>
+
+    <!-- ============ DASHBOARD (sticky, right) ============ -->
+    <aside class="cs-aside mb-aside" aria-label="Power BI dashboard">
+      <div class="cs-aside__bar">
+        <span class="cs-aside__live"><span class="cs-aside__dot"></span>Power BI dashboard</span>
+        <button class="mb-expand" type="button">Expand &#10530;</button>
+      </div>
+      <p class="cs-aside__hint">Recorded walkthrough of the interactive report. Hover or tap a visual below to spotlight it.</p>
+
+      <div class="mb-window">
+        <div class="mb-window__bar">
+          <span class="mb-window__dots"><i></i><i></i><i></i></span>
+          <span class="mb-window__title">Monster bev Dashboard</span>
+          <span class="mb-window__tag">Page 1</span>
+        </div>
+        <div class="mb-stage">
+          <video class="mb-video" src="../assets/media/monster/power-bi.mp4" poster="../assets/media/monster/power-bi-poster.jpg"
+            muted loop playsinline preload="metadata" aria-label="Power BI dashboard walkthrough"></video>
+          <div class="mb-spot" aria-hidden="true"></div>
+        </div>
+        <div class="mb-controls">
+          <button class="mb-play" type="button" aria-label="Pause video">
+            <svg class="i-pause" viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg>
+          </button>
+          <input class="mb-seek" type="range" min="0" max="1000" value="0" aria-label="Seek" />
+          <span class="mb-time">0:00 / 0:34</span>
+        </div>
+      </div>
+
+      <div class="mb-visuals">
+        <div class="mb-visuals__head">Report visuals</div>
+        <ul class="mb-visuals__list">
+          <li><button type="button" data-box="1.3,1.6,32.4,37">Revenue by Region &amp; Country</button></li>
+          <li><button type="button" data-box="33,1.6,65.8,37">Revenue by Flavor &amp; Pack</button></li>
+          <li><button type="button" data-box="66.5,1.6,98.9,37">Revenue by Store Type</button></li>
+          <li><button type="button" data-box="1.3,37.7,26.2,75.5">Marketing Spend vs Revenue</button></li>
+          <li><button type="button" data-box="26.8,37.7,71.3,75.5">Revenue by Month</button></li>
+          <li><button type="button" data-box="71.9,37.7,98.9,75.5">Days on Shelf</button></li>
+          <li><button type="button" data-box="1.3,76.7,25.6,99.5">Gross Margin KPI</button></li>
+          <li><button type="button" data-box="26.2,76.7,49.6,99.5">Avg Shelf Score KPI</button></li>
+          <li><button type="button" data-box="50.1,76.7,73.4,99.5">Avg Days on Shelf KPI</button></li>
+          <li><button type="button" data-box="74.1,76.7,98.9,99.5">Revenue by Brand</button></li>
+        </ul>
+      </div>
+
+      <div class="mb-reading">
+        <div class="mb-reading__row">
+          <span class="mb-reading__label">Now reading</span>
+          <span class="mb-reading__page"><b class="mb-reading__num">01</b> / 10 · <span class="mb-reading__name">Mission</span></span>
+        </div>
+        <div class="mb-reading__track"><div class="mb-reading__fill"></div></div>
+      </div>
+    </aside>
+
+    <!-- ============ CASE STUDY BODY ============ -->
+    <div class="cs cs-body mb-body">
+
+      <nav class="cs-phases" aria-label="Case study sections">
+        <a href="#mission">Mission</a>
+        <a href="#operations">BI Ops</a>
+        <a href="#challenges">Challenges</a>
+        <a href="#opportunities">Opportunities</a>
+        <a href="#recommendations">Top 3</a>
+        <a href="#warehouse">Warehouse</a>
+        <a href="#mining">Mining</a>
+        <a href="#text-analytics">Text &amp; Web</a>
+        <a href="#trends">Trends</a>
+        <a href="#final">Final Recs</a>
+      </nav>
+
+      <!-- 01 MISSION -->
+      <section id="mission" class="mb-section">
+        <div class="mb-label">01 — Mission &amp; Strategy</div>
+        <h2 class="mb-title"><span class="mb-accent">Mission</span> &amp; Strategic Goals</h2>
+        <div class="mb-mission">
+          <p>Monster Beverage Corporation, headquartered in Corona, California, is the world's second-largest energy drink maker with $8.29 billion in 2025 net sales. Its mission centers on building unrivaled brand strength through high-engagement subcultures — gaming, motocross, music, and fitness — while maintaining supply chain agility via an asset-light model powered by The Coca-Cola Company's global bottling network.</p>
+        </div>
+        <div class="mb-pillars">
+          <div class="mb-pillar">
+            <div class="mb-icon">🌍</div>
+            <h3>International Expansion</h3>
+            <p>Aggressive growth in Asia-Pacific and Latin America. International sales hit a record 43% of total revenue in 2025, with Q4 international growth of 26.9%.</p>
+          </div>
+          <div class="mb-pillar">
+            <div class="mb-icon">📦</div>
+            <h3>Portfolio Diversification</h3>
+            <p>Scaling Reign Wellness for health-conscious consumers and The Beast Alcohol for adjacent categories. Four reportable segments drive balanced growth.</p>
+          </div>
+          <div class="mb-pillar">
+            <div class="mb-icon">⚙️</div>
+            <h3>Supply Chain Optimization</h3>
+            <p>Balancing in-house production with 100+ co-packing partners. The asset-light model yields 55%+ gross margins but demands sophisticated data integration.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATS BAND -->
+      <section class="mb-band">
+        <div class="mb-band__row">
+          <div class="mb-band__stat"><div class="mb-count">$50B+</div><div class="mb-band__desc">Market Capitalization</div></div>
+          <div class="mb-band__stat"><div class="mb-count">2nd</div><div class="mb-band__desc">Global Energy Market Share</div></div>
+          <div class="mb-band__stat"><div class="mb-count">100+</div><div class="mb-band__desc">Bottling Partners Global</div></div>
+          <div class="mb-band__stat"><div class="mb-count">43%</div><div class="mb-band__desc">International Revenue Share</div></div>
+        </div>
+        <p class="mb-band__quote">"Operating an asset-light model requires sophisticated data to bridge the gap between internal strategy and external execution."</p>
+      </section>
+
+      <!-- 02 BI OPERATIONS -->
+      <section id="operations" class="mb-section">
+        <div class="mb-label">02 — Current State</div>
+        <h2 class="mb-title">Current State of <span class="mb-accent">BI Operations</span></h2>
+        <p class="mb-intro">Key decision areas where Business Intelligence should drive strategic and operational outcomes across Monster's global distribution network.</p>
+        <figure class="mb-figure">
+          <img src="../assets/media/monster/shelf.jpg" alt="Monster Energy cans on a convenience store shelf" loading="lazy" width="1240" height="889" />
+        </figure>
+        <div class="mb-ops">
+          <div class="mb-op"><div class="mb-op__num">01</div><h3>Depletion Tracking</h3><p>Monitoring product velocity off warehouse shelves across the Coca-Cola distribution network. Identifies slow-moving SKUs and optimizes replenishment cycles in real time.</p></div>
+          <div class="mb-op"><div class="mb-op__num">02</div><h3>Marketing ROI Analysis</h3><p>Analyzing engagement metrics from subculture sponsorships (eSports, motocross, music festivals) to justify spend allocation and measure conversion impact across channels.</p></div>
+          <div class="mb-op"><div class="mb-op__num">03</div><h3>Co-Packer Performance Audit</h3><p>Score-carding third-party bottlers on quality control, production timelines, and cost efficiency — critical for maintaining 55%+ gross margins across 100+ partners.</p></div>
+          <div class="mb-op"><div class="mb-op__num">04</div><h3>Regional Sales Mix</h3><p>Evaluating revenue distribution across North America, Europe, Asia-Pacific, and Latin America to guide market entry and expansion investment decisions.</p></div>
+          <div class="mb-op"><div class="mb-op__num">05</div><h3>Portfolio Cannibalization</h3><p>Assessing whether new product launches (Reign Wellness, The Beast) grow the total pie or cannibalize existing Monster Energy core sales across retail channels.</p></div>
+          <div class="mb-op"><div class="mb-op__num">06</div><h3>Commodity Cost Intelligence</h3><p>Tracking aluminum, sugar, and freight cost volatility to make proactive pricing and sourcing decisions that protect margins during supply disruptions.</p></div>
+        </div>
+      </section>
+
+      <!-- 03 CHALLENGES -->
+      <section id="challenges" class="mb-section mb-section--alt">
+        <div class="mb-label">03 — Challenges</div>
+        <h2 class="mb-title">Current <span class="mb-accent">BI Challenges</span></h2>
+        <div class="mb-challenges">
+          <ol class="mb-challenge-list">
+            <li class="mb-challenge">
+              <div class="mb-icon">🔌</div>
+              <div>
+                <h4>Asset-Light Data Blind Spots</h4>
+                <p>Monster relies on external partners for the "last mile." This creates critical gaps in real-time retail visibility across the distribution network.</p>
+              </div>
+            </li>
+            <li class="mb-challenge">
+              <div class="mb-icon">🗂️</div>
+              <div>
+                <h4>ERP Fragmentation</h4>
+                <p>Integrating 300+ external bottling systems with unique ERP platforms (SAP vs. Oracle) into a single source of truth is the foundational hurdle for any BI initiative.</p>
+              </div>
+            </li>
+            <li class="mb-challenge">
+              <div class="mb-icon">🔒</div>
+              <div>
+                <h4>Data Ownership &amp; Integration</h4>
+                <p>Third-party bottlers guard granular point-of-sale data. Negotiating data-sharing agreements requires governance frameworks balancing transparency with partner trust.</p>
+              </div>
+            </li>
+            <li class="mb-challenge">
+              <div class="mb-icon">🌿</div>
+              <div>
+                <h4>Scope 3 ESG Tracking</h4>
+                <p>Tracking carbon emissions in external logistics across a fragmented supply chain creates significant reporting complexity for ESG compliance.</p>
+              </div>
+            </li>
+            <li class="mb-challenge">
+              <div class="mb-icon">📈</div>
+              <div>
+                <h4>Margin Pressure</h4>
+                <p>Rising input costs for aluminium &amp; sugar, tariff exposure, and currency fluctuations require real-time commodity intelligence to protect 55%+ gross margins.</p>
+              </div>
+            </li>
+          </ol>
+          <blockquote class="mb-quote">
+            <span class="mb-quote__mark" aria-hidden="true">"</span>
+            <p>Without normalized data, predictive models are based on delayed reality, leading to poor strategic execution and missed opportunities.</p>
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- 04 OPPORTUNITIES -->
+      <section id="opportunities" class="mb-section">
+        <div class="mb-label">04 — Opportunities</div>
+        <h2 class="mb-title">Areas of <span class="mb-accent">BI Opportunity</span></h2>
+        <p class="mb-intro">High-impact areas where effective Business Intelligence can transform Monster's operations and competitive positioning across global markets.</p>
+        <div class="mb-opps">
+          <div class="mb-opp"><div class="mb-icon">👥</div><h3>Customer Satisfaction</h3><p>Leverage first-party consumer data and sentiment analysis to tailor product offerings, improve brand loyalty, and increase Net Promoter Scores across key demographics.</p></div>
+          <div class="mb-opp"><div class="mb-icon">📦</div><h3>Inventory Optimization</h3><p>Reduce carrying costs by 15–25% through demand-driven forecasting that accounts for local events, seasonality, and regional taste preferences across 100+ markets.</p></div>
+          <div class="mb-opp"><div class="mb-icon">📊</div><h3>Revenue Growth</h3><p>Use predictive analytics to identify whitespace opportunities in underpenetrated regions. International sales grew 26.9% in Q4 2025 with significant room to expand.</p></div>
+          <div class="mb-opp"><div class="mb-icon">⚙️</div><h3>Operational Efficiency</h3><p>Automate co-packer vs. in-house production decisions using real-time freight rates and capacity data to optimize the production mix and protect margins.</p></div>
+          <div class="mb-opp"><div class="mb-icon">🤝</div><h3>Partner Performance</h3><p>Create transparent performance dashboards for bottler/distributor partners, improving accountability, shelf placement scores, and speed-to-market execution.</p></div>
+          <div class="mb-opp"><div class="mb-icon">🌱</div><h3>Sustainability Intelligence</h3><p>Track Scope 3 carbon emissions across the distribution chain to meet ESG reporting mandates and appeal to environmentally conscious consumers globally.</p></div>
+        </div>
+      </section>
+
+      <!-- 05 TOP 3 -->
+      <section id="recommendations" class="mb-section mb-section--alt">
+        <div class="mb-label">05 — Top Recommendations</div>
+        <h2 class="mb-title">Top 3 <span class="mb-accent">BI Recommendations</span></h2>
+        <div class="mb-recs">
+          <div class="mb-rec">
+            <div class="mb-rec__num">01</div>
+            <h3>Field BI Democratization</h3>
+            <p>Provide real-time retail dashboards to Coca-Cola field reps, optimizing shelf placement and promotions in-situ. GPS-triggered store-level insights close the last-mile visibility gap.</p>
+          </div>
+          <div class="mb-rec">
+            <div class="mb-rec__num">02</div>
+            <h3>AI-Powered Consumer Intelligence Platform</h3>
+            <p>Unify loyalty data, social sentiment, and demand forecasting with ML clustering to guide new products and enable localized global expansion with precision.</p>
+          </div>
+          <div class="mb-rec">
+            <div class="mb-rec__num">03</div>
+            <h3>Unified Data Warehouse with Real-Time Feeds</h3>
+            <p>Cloud warehouse integrating bottlers, POS, and ERP with real-time streams, creating a single global data view for faster decisions and consolidated strategic oversight.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 WAREHOUSE -->
+      <section id="warehouse" class="mb-section">
+        <div class="mb-label">06 — Data Warehousing</div>
+        <h2 class="mb-title">Data Warehouse <span class="mb-accent">Strategic Value</span></h2>
+        <div class="mb-warehouse">
+          <div>
+            <p class="mb-intro mb-intro--left">For Monster's asset-light model, real-time data access is essential. Unlike vertically integrated manufacturers, Monster cannot walk onto a production floor. It depends on timely data feeds from hundreds of independent partners to drive every strategic decision.</p>
+            <ul class="mb-ticks">
+              <li>Distributor Invisibility — Direct visibility of shelf stock levels</li>
+              <li>Commodity Spikes — Real-time tracking of aluminum and sugar volatility</li>
+              <li>Cannibalization — Ensuring new wellness lines grow the total pie</li>
+              <li>Asset Optimization — Balancing in-house vs. co-packer production</li>
+              <li>Scope 3 Intelligence — Tracking carbon footprints across external trucks</li>
+              <li>Hyper-local inventory prediction powered by real-time access</li>
+            </ul>
+            <div class="mb-realtime">
+              <h3>⏱ Why Real-Time Access is Critical</h3>
+              <p>Real-time access enables surging demand detection during a Seattle gaming tournament or a Texas heatwave, instant response to competitor shelf moves in convenience stores, and live freight rate optimization when deciding between co-packers. Without this, Monster operates on delayed data — leading to missed shelf opportunities and margin erosion.</p>
+            </div>
+          </div>
+          <div class="mb-apps">
+            <div class="mb-app is-vital"><h4>Supply Chain Command Center</h4><p>Centralized view of co-packer capacity, freight costs, and production schedules. Automates make-vs-buy decisions.</p></div>
+            <div class="mb-app is-vital"><h4>Consumer 360 Platform</h4><p>Unify first-party loyalty data with third-party purchase data for complete consumer profiles.</p></div>
+            <div class="mb-app is-vital"><h4>Competitive Intelligence Hub</h4><p>Aggregate market share data, pricing benchmarks, and competitive shelf placement scores.</p></div>
+            <div class="mb-app"><h4>Sales Velocity Analytics</h4><p>Track real-time depletion rates by SKU, region, and channel to optimize distribution.</p></div>
+            <div class="mb-app"><h4>Financial Planning &amp; Analysis</h4><p>Consolidated P&amp;L views by segment, region, and channel for faster quarterly close.</p></div>
+            <div class="mb-app"><h4>ESG &amp; Sustainability Reporting</h4><p>Aggregate Scope 1–3 emissions data across the value chain for regulatory compliance.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 MINING -->
+      <section id="mining" class="mb-section mb-section--alt">
+        <div class="mb-label">07 — Data Mining</div>
+        <h2 class="mb-title">Data Mining: <span class="mb-accent">Deep Consumer Insight</span></h2>
+        <div class="mb-mines">
+          <div class="mb-mine">
+            <div class="mb-mine__img"><img src="../assets/media/monster/flavor-tribe.jpg" alt="Skaters and BMX riders outside a Monster esports café" loading="lazy" width="723" height="439" /></div>
+            <h3>Flavor Tribe Analysis</h3>
+            <p>Profile consumer lifestyle overlaps across gaming, wellness, fitness, and music subcultures. Cluster analysis reveals which flavors resonate with specific tribal identities.</p>
+            <div class="mb-mine__label">Key Benefits</div>
+            <ul class="mb-arrows">
+              <li>Guides R&amp;D investment for new flavors and product lines (e.g., FLRT wellness brand)</li>
+              <li>Reduces new product failure rates by targeting proven preference clusters</li>
+            </ul>
+          </div>
+          <div class="mb-mine">
+            <div class="mb-mine__img"><img src="../assets/media/monster/basket-analysis.jpg" alt="Monster Energy 12-pack variety cases" loading="lazy" width="723" height="439" /></div>
+            <h3>Predictive Bundling &amp; Basket Analysis</h3>
+            <p>Use association rule mining on POS transaction data to identify which products are frequently purchased together. Reveal cross-sell opportunities across product lines.</p>
+            <div class="mb-mine__label">Key Benefits</div>
+            <ul class="mb-arrows">
+              <li>Design high-ROI variety packs optimized for convenience store shelves</li>
+              <li>Increase average basket size by 12–18% through data-driven merchandising</li>
+            </ul>
+          </div>
+          <div class="mb-mine">
+            <div class="mb-mine__img"><img src="../assets/media/monster/demand-forecasting.jpg" alt="A Monster Energy can beside a mint and lime drink" loading="lazy" width="723" height="439" /></div>
+            <h3>Localized Demand Forecasting</h3>
+            <p>Combine historical sales data with external signals (weather, local events, social trends) to predict demand at the city/store level using machine learning models.</p>
+            <div class="mb-mine__label">Key Benefits</div>
+            <ul class="mb-arrows">
+              <li>Reduce stock outs by 20–30% and inventory carrying costs by 15–25%</li>
+              <li>Enable hyper-local marketing for events like gaming tournaments or heatwaves</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 08 TEXT & WEB -->
+      <section id="text-analytics" class="mb-section">
+        <div class="mb-label">08 — Text &amp; Web Analytics</div>
+        <h2 class="mb-title">Text &amp; Web <span class="mb-accent">Analytics</span></h2>
+        <p class="mb-intro">Mining unstructured data from social media, reviews, and web behavior to extract strategic advantage across Monster's subculture ecosystem.</p>
+        <div class="mb-analytics">
+          <div class="mb-block">
+            <h3>★ Strategic Opportunities</h3>
+            <div class="mb-block__item"><strong>Subculture Sentiment Radar</strong><p>Real-time NLP analysis of gaming forums, motocross communities, and music festival feeds to detect emerging flavor preferences before competitors.</p></div>
+            <div class="mb-block__item"><strong>Influencer ROI Quantification</strong><p>Map web engagement from sponsored content to actual sales lift, enabling precise budget allocation across 5+ consumer segments.</p></div>
+            <div class="mb-block__item"><strong>Competitive Threat Detection</strong><p>Automated web scraping and text analysis of competitor product launches and pricing to enable proactive strategy.</p></div>
+          </div>
+          <div class="mb-block">
+            <h3>⚙ Operational Problems Solved</h3>
+            <div class="mb-block__item"><strong>Quality Control Early Warning</strong><p>Text mining of consumer complaints and social mentions to detect quality issues at specific co-packers before they escalate to crises.</p></div>
+            <div class="mb-block__item"><strong>Demand Signal Amplification</strong><p>Analyze web search trends and social buzz to predict demand surges 2–4 weeks ahead of traditional POS data signals.</p></div>
+            <div class="mb-block__item"><strong>Customer Service Optimization</strong><p>NLP-powered classification of support tickets to route issues faster and identify systemic operational problems.</p></div>
+          </div>
+        </div>
+
+        <div class="mb-sentiment">
+          <svg class="mb-donut" viewBox="0 0 160 160" role="img" aria-label="Sentiment: 55% positive, 30% lifestyle engagement, 15% competitive chatter">
+            <circle class="mb-donut__track" cx="80" cy="80" r="60" />
+            <circle class="mb-donut__seg" cx="80" cy="80" r="60" style="--pct:55; --off:0; --c:#AAFF00" />
+            <circle class="mb-donut__seg" cx="80" cy="80" r="60" style="--pct:30; --off:55; --c:#6A9A20" />
+            <circle class="mb-donut__seg" cx="80" cy="80" r="60" style="--pct:15; --off:85; --c:#2E4A2E" />
+            <text x="80" y="80" class="mb-donut__num">55%</text>
+            <text x="80" y="97" class="mb-donut__lbl">POSITIVE</text>
+          </svg>
+          <div class="mb-legend">
+            <h3>Sentiment Insights</h3>
+            <div class="mb-legend__item"><i style="background:#AAFF00"></i><span>Positive Brand Sentiment</span><b>55%</b></div>
+            <div class="mb-legend__item"><i style="background:#6A9A20"></i><span>Lifestyle Engagement</span><b>30%</b></div>
+            <div class="mb-legend__item"><i style="background:#2E4A2E"></i><span>Competitive Chatter</span><b>15%</b></div>
+            <p class="mb-legend__note"><strong>Bold Prediction:</strong> Advanced NLP will eventually automate product R&amp;D, predicting flavor success with near certainty before production starts.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 09 TRENDS -->
+      <section id="trends" class="mb-section mb-section--alt">
+        <div class="mb-label">09 — Future Outlook</div>
+        <h2 class="mb-title">Emerging <span class="mb-accent">BI Trends</span></h2>
+        <p class="mb-intro">Technologies and trends that will shape Monster's BI landscape in the next 3–5 years, transforming how the company operates at global scale.</p>
+        <div class="mb-trends">
+          <div class="mb-trend">
+            <h3>🤖 Generative AI for Decision Support</h3>
+            <p>Moving from descriptive reporting to predictive and prescriptive decision support. GenAI can simulate wellness brand launches across demographics before committing marketing spend, predict supply chain disruptions from weather and port data, and validate new SKUs with near-certainty before mass production.</p>
+          </div>
+          <div class="mb-trend">
+            <h3>📡 Edge Analytics &amp; IoT</h3>
+            <p>Deploying lightweight AI models at the point of sale and in distribution centers. Smart cooler sensors can track real-time inventory levels, consumption patterns, and temperature compliance — feeding data directly into Monster's warehouse without bottler intermediation.</p>
+          </div>
+          <div class="mb-trend">
+            <h3>🔧 Composable Data Architecture</h3>
+            <p>Moving away from monolithic data warehouses toward modular, API-driven data mesh architectures. Each region or business unit owns its data products while a centralized governance layer ensures consistency — ideal for Monster's decentralized operating model.</p>
+          </div>
+          <div class="mb-trend">
+            <h3>🛡 Privacy-Preserving Analytics</h3>
+            <p>Federated learning and differential privacy techniques allow Monster to derive insights from bottler and consumer data without requiring raw data transfers. This addresses data sovereignty challenges while enabling advanced analytics across the partner network.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10 FINAL -->
+      <section id="final" class="mb-section">
+        <div class="mb-label">10 — Final Recommendations</div>
+        <h2 class="mb-title"><span class="mb-accent">Final</span> Recommendations</h2>
+        <p class="mb-intro">Three strategic BI initiatives explicitly aligned to Monster's growth pillars, designed to close the asset-light data gap and unlock the next phase of global expansion.</p>
+        <ol class="mb-finals">
+          <li class="mb-final">
+            <div class="mb-final__num">01</div>
+            <div class="mb-final__body">
+              <h3>Unified Data Warehouse with Real-Time Feeds</h3>
+              <div class="mb-final__goal">Strategic Goal: International Expansion + Supply Chain Optimization</div>
+              <p>Build a cloud-based data warehouse (e.g., Snowflake or Databricks) ingesting data from all 300+ bottler systems, POS terminals, and internal ERPs into a single source of truth. Include real-time streaming for sales velocity and freight cost data. This eliminates fragmented reporting that currently delays decision-making by weeks, giving Monster a consolidated global view that supports data-driven market entry and supply chain optimization decisions.</p>
+            </div>
+          </li>
+          <li class="mb-final">
+            <div class="mb-final__num">02</div>
+            <div class="mb-final__body">
+              <h3>AI-Powered Consumer Intelligence Platform</h3>
+              <div class="mb-final__goal">Strategic Goal: Portfolio Diversification + International Expansion</div>
+              <p>Deploy a combined data mining and text analytics platform that unifies first-party loyalty data, social sentiment analysis, and predictive demand forecasting. Use ML-driven flavor tribe clustering and market basket analysis to guide new product development for Reign Wellness and The Beast Alcohol. The platform will compress R&amp;D cycles, reduce new product failure rates, and enable hyper-localized product assortments as Monster enters new international markets.</p>
+            </div>
+          </li>
+          <li class="mb-final">
+            <div class="mb-final__num">03</div>
+            <div class="mb-final__body">
+              <h3>Field BI Democratization with Mobile Dashboards</h3>
+              <div class="mb-final__goal">Strategic Goal: All Three Strategic Pillars</div>
+              <p>Roll out mobile-first data visualization dashboards to every Coca-Cola field rep, regional manager, and executive. Provide GPS-triggered store-level insights, competitive shelf data, and promotional effectiveness metrics. This closes the "last-mile" visibility gap inherent in Monster's asset-light model — supporting international expansion (consistent global KPIs), supply chain optimization (real-time depletion data), and portfolio diversification (segment-level shelf performance).</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- CREDITS + NEXT -->
+      <section class="mb-credits">
+        <div class="mb-credits__team">
+          <div class="mb-label">Team</div>
+          <p class="mb-credits__names">Tunir Mitra · Simran Kaur · Ben Cheng</p>
+          <p class="mb-credits__sub">Strategic Business Intelligence Analytics Roadmap · Monster Beverage Corporation</p>
+        </div>
+        <a class="cs-next" href="amazon-rufus.html">
+          <span class="cs-next__label">Next case study</span>
+          <span class="cs-next__title">Amazon Rufus: Closing the Confidence Gap &rarr;</span>
+        </a>
+      </section>
+    </div>
+  </main>
+
+  <!-- Full-size video -->
+  <dialog class="mb-lightbox" aria-label="Power BI dashboard, full size">
+    <button class="mb-lightbox__close" type="button" aria-label="Close">&times;</button>
+    <video src="../assets/media/monster/power-bi.mp4" poster="../assets/media/monster/power-bi-poster.jpg" controls muted loop playsinline preload="none"></video>
+  </dialog>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="contact">
+    <svg class="footer__wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,35 C220,5 380,55 620,30 C860,5 1020,50 1240,28 C1340,18 1400,26 1440,30 L1440,60 L0,60 Z" />
+    </svg>
+
+    <div class="footer__inner">
+      <div class="footer__cols">
+        <div class="footer__col">
+          <a href="../index.html" class="footer__brand">Tunir Mitra</a>
+          <p>Building end to end products from concept to launch, driving innovation, improving experiences, and creating tangible impact worldwide.</p>
+        </div>
+
+        <div class="footer__col">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="../about.html">About Me</a></li>
+            <li><a href="../index.html#experience">Experience</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h3>Contact</h3>
+          <ul class="footer__contact">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+              <a href="tel:+12065794528">+1 (206) 579-4528</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <a href="mailto:tunirmitra101@gmail.com">tunirmitra101@gmail.com</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.3 18.3V10H5.7v8.3h2.6zM7 8.9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm11.3 9.4v-4.6c0-2.4-1.3-3.6-3.1-3.6-1.4 0-2.1.8-2.4 1.3V10h-2.6v8.3h2.6v-4.4c0-1.2.2-2.3 1.7-2.3s1.5 1.4 1.5 2.4v4.3h2.3z"/></svg>
+              <a href="https://www.linkedin.com/in/tunir-mitra/" target="_blank" rel="noopener">linkedin.com/in/tunir-mitra</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>&copy; <span id="year">2026</span> Tunir Mitra. All rights reserved.</span>
+      <a href="#" class="footer__top">Back to top &uarr;</a>
+    </div>
+  </footer>
+
+  <script src="../assets/js/site.js"></script>
+  <script src="../assets/js/case-study.js"></script>
+  <script src="../assets/js/pages/monster-bi.js"></script>
+</body>
+</html>

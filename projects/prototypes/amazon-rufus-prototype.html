@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rufus Prototype | Tunir Mitra</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Amazon Ember', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #14141f;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phone {
+            width: min(390px, calc(100vw - 20px));
+            height: min(800px, calc(100vh - 24px));
+            background: #EAEDED;
+            border-radius: 20px;
+            border: 1px solid #111;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 6px #1a1a1a, 0 0 0 7px #333;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* ── Header ── */
+        .hdr {
+            background: #131921;
+            padding: 0 12px;
+            flex: 0 0 auto;
+            z-index: 10;
+        }
+
+        .hdr-top {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 0 8px;
+        }
+
+        .logo-text {
+            color: #fff;
+            font-size: 21px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            flex-shrink: 0;
+        }
+
+        .logo-text span {
+            color: #FF9900;
+        }
+
+        .hdr-search {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            background: #FF9900;
+            border-radius: 4px;
+            overflow: hidden;
+            height: 34px;
+        }
+
+        .hdr-search-inner {
+            flex: 1;
+            padding: 0 8px;
+            font-size: 12px;
+            color: #777;
+            background: #fff;
+            height: 100%;
+            border-radius: 4px 0 0 4px;
+            display: flex;
+            align-items: center;
+            font-style: italic;
+        }
+
+        .hdr-search-btn {
+            width: 36px;
+            height: 100%;
+            background: #FF9900;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hdr-icons {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .hdr-icon-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            padding: 4px 7px;
+            border-radius: 3px;
+            font-family: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1px;
+            transition: border 0.1s;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .hdr-icon-btn:hover {
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 3px;
+        }
+
+        .hdr-icon-btn .ico {
+            font-size: 18px;
+        }
+
+        .hdr-icon-btn .lbl {
+            font-size: 9px;
+            color: #ccc;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: 0;
+            right: 4px;
+            background: #FF9900;
+            color: #131921;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 50%;
+            width: 17px;
+            height: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hdr-nav {
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #2d3748;
+            padding: 5px 0;
+            overflow-x: auto;
+            scrollbar-width: none;
+            gap: 0;
+        }
+
+        .hdr-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            font-size: 11px;
+            font-family: inherit;
+            padding: 3px 9px;
+            white-space: nowrap;
+            border-radius: 2px;
+            transition: background 0.1s;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-btn.active {
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .nav-rufus {
+            color: #FF9900;
+            font-weight: 700;
+        }
+
+        /* ── Rufus intro banner ── */
+        .rufus-banner {
+            background: #232F3E;
+            padding: 8px 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 0 0 auto;
+            border-bottom: 2px solid #FF9900;
+        }
+
+        .rufus-avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #FF9900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 18px;
+        }
+
+        .rufus-banner-text {
+            flex: 1;
+        }
+
+        .rufus-banner-name {
+            color: #FF9900;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.02em;
+        }
+
+        .rufus-banner-sub {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 10.5px;
+            margin-top: 1px;
+        }
+
+        .rufus-beta-badge {
+            background: #FF9900;
+            color: #131921;
+            font-size: 9px;
+            font-weight: 700;
+            border-radius: 3px;
+            padding: 2px 6px;
+            letter-spacing: 0.05em;
+            flex-shrink: 0;
+        }
+
+        /* ── Chat ── */
+        .chat {
+            flex: 1 1 0;
+            min-height: 0;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+            padding: 12px 10px 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: #EAEDED;
+        }
+
+        .chat::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        .chat::-webkit-scrollbar-thumb {
+            background: #bbb;
+            border-radius: 2px;
+        }
+
+        .row {
+            display: flex;
+            align-items: flex-end;
+            gap: 7px;
+        }
+
+        .row.user {
+            justify-content: flex-end;
+        }
+
+        .av {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #FF9900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+            font-weight: 700;
+            color: #131921;
+        }
+
+        .bub {
+            max-width: 80%;
+            padding: 10px 13px;
+            font-size: 13px;
+            line-height: 1.55;
+            border-radius: 8px;
+        }
+
+        .bub.rufus {
+            background: #fff;
+            color: #0F1111;
+            border: 1px solid #D5D9D9;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+            border-radius: 0 12px 12px 12px;
+        }
+
+        .bub.user {
+            background: #232F3E;
+            color: #fff;
+            border-radius: 12px 0 12px 12px;
+        }
+
+        /* ── Typing ── */
+        .dots {
+            display: flex;
+            gap: 5px;
+            padding: 3px 0;
+            align-items: center;
+        }
+
+        .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #FF9900;
+            animation: bob 1.1s infinite ease-in-out;
+        }
+
+        .dot:nth-child(2) {
+            animation-delay: 0.18s;
+        }
+
+        .dot:nth-child(3) {
+            animation-delay: 0.36s;
+        }
+
+        @keyframes bob {
+
+            0%,
+            60%,
+            100% {
+                transform: translateY(0);
+            }
+
+            30% {
+                transform: translateY(-6px);
+            }
+        }
+
+        /* ── Bundle card ── */
+        .card {
+            background: #fff;
+            border: 1px solid #D5D9D9;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-hdr {
+            background: #232F3E;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .card-emoji {
+            font-size: 22px;
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .card-meta {
+            font-size: 11px;
+            color: #FF9900;
+            margin-top: 2px;
+            font-weight: 600;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px;
+            border-bottom: 1px solid #f0f0f0;
+            background: #fff;
+            user-select: none;
+        }
+
+        .item:last-of-type {
+            border-bottom: none;
+        }
+
+        .item.off {
+            opacity: 0.38;
+        }
+
+        .chk {
+            width: 18px;
+            height: 18px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .chk.on {
+            background: #FF9900;
+            border: 1px solid #c45500;
+        }
+
+        .chk.ox {
+            background: transparent;
+            border: 2px solid #949494;
+        }
+
+        .chk-v {
+            color: #131921;
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .item-img {
+            width: 44px;
+            height: 44px;
+            border-radius: 4px;
+            background: linear-gradient(135deg, #f3f3f3, #e8e8e8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+            border: 1px solid #e0e0e0;
+        }
+
+        .item-info {
+            flex: 1;
+            min-width: 0;
+            cursor: pointer;
+        }
+
+        .item-info:hover .item-name {
+            color: #C45500;
+            text-decoration: underline;
+        }
+
+        .item-name {
+            font-size: 12.5px;
+            color: #007185;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .item-brand {
+            font-size: 11px;
+            color: #565959;
+            margin-top: 2px;
+        }
+
+        .item-prime {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            margin-top: 2px;
+        }
+
+        .prime-badge {
+            background: #00A8E0;
+            color: #fff;
+            font-size: 8px;
+            font-weight: 700;
+            padding: 1px 4px;
+            border-radius: 2px;
+            letter-spacing: 0.04em;
+        }
+
+        .prime-ship {
+            font-size: 10px;
+            color: #007185;
+        }
+
+        .item-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 4px;
+            flex-shrink: 0;
+        }
+
+        .item-price {
+            font-size: 15px;
+            font-weight: 700;
+            color: #B12704;
+        }
+
+        .item-swap {
+            font-size: 10px;
+            color: #0F1111;
+            background: #fff;
+            border: 1px solid #D5D9D9;
+            border-radius: 3px;
+            padding: 3px 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 500;
+            transition: background 0.1s;
+            white-space: nowrap;
+        }
+
+        .item-swap:hover {
+            background: #f7f8f8;
+            border-color: #a5a5a5;
+        }
+
+        .card-foot {
+            padding: 10px 14px;
+            border-top: 1px solid #f0f0f0;
+            background: #fff;
+        }
+
+        .add-btn {
+            width: 100%;
+            padding: 9px 12px;
+            border-radius: 20px;
+            border: none;
+            font-size: 13px;
+            cursor: pointer;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            transition: all 0.14s;
+        }
+
+        .add-btn.go {
+            background: #FFD814;
+            color: #0F1111;
+            border: 1px solid #FCD200;
+        }
+
+        .add-btn.go:hover {
+            background: #F7CA00;
+        }
+
+        .add-btn.go:active {
+            transform: scale(0.99);
+        }
+
+        .add-btn.empty {
+            background: #f0f0f0;
+            color: #aaa;
+            cursor: not-allowed;
+            border: 1px solid #ddd;
+        }
+
+        .add-btn.done {
+            background: #067D62;
+            color: #fff;
+            cursor: default;
+        }
+
+        /* ── Suggested prompts ── */
+        .chips {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            padding: 7px 10px 6px;
+            scrollbar-width: none;
+            flex: 0 0 auto;
+            background: #fff;
+            border-top: 1px solid #e8e8e8;
+        }
+
+        .chips::-webkit-scrollbar {
+            display: none;
+        }
+
+        .chip {
+            background: #fff;
+            border: 1px solid #D5D9D9;
+            border-radius: 20px;
+            padding: 5px 11px;
+            font-size: 11.5px;
+            color: #0F1111;
+            cursor: pointer;
+            white-space: nowrap;
+            font-weight: 400;
+            flex-shrink: 0;
+            font-family: inherit;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+            transition: all 0.1s;
+        }
+
+        .chip:hover {
+            background: #f7f8f8;
+            border-color: #a5a5a5;
+        }
+
+        /* ── Input ── */
+        .input-bar {
+            flex: 0 0 auto;
+            padding: 8px 10px 10px;
+            background: #fff;
+            border-top: 1px solid #D5D9D9;
+            display: flex;
+            gap: 7px;
+            align-items: center;
+        }
+
+        .rufus-input-label {
+            font-size: 10px;
+            color: #FF9900;
+            font-weight: 700;
+            flex-shrink: 0;
+            letter-spacing: 0.04em;
+        }
+
+        .txt {
+            flex: 1;
+            padding: 9px 13px;
+            border: 1px solid #a9b0bc;
+            border-radius: 4px;
+            font-size: 13px;
+            background: #fff;
+            color: #0F1111;
+            outline: none;
+            font-family: inherit;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+
+        .txt:focus {
+            border-color: #e77600;
+            box-shadow: 0 0 0 3px rgba(228, 121, 17, 0.3);
+        }
+
+        .txt::placeholder {
+            color: #999;
+        }
+
+        .snd {
+            width: 38px;
+            height: 38px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.14s;
+        }
+
+        .snd.on {
+            background: #FFD814;
+            color: #0F1111;
+            border: 1px solid #FCD200;
+        }
+
+        .snd.on:hover {
+            background: #F7CA00;
+        }
+
+        .snd.off {
+            background: #f0f0f0;
+            color: #ccc;
+            cursor: not-allowed;
+            border: 1px solid #ddd;
+        }
+
+        .footer {
+            flex: 0 0 auto;
+            text-align: center;
+            font-size: 9px;
+            color: #888;
+            padding: 3px 0 6px;
+            background: #fff;
+            letter-spacing: 0.04em;
+        }
+
+        /* ══════════════════════════════════
+     PANELS
+  ══════════════════════════════════ */
+        .panel-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 50;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s;
+            border-radius: 20px;
+        }
+
+        .panel-overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .panel {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border-radius: 12px 12px 0 0;
+            z-index: 60;
+            transform: translateY(100%);
+            transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+            display: flex;
+            flex-direction: column;
+            max-height: 85%;
+        }
+
+        .panel.show {
+            transform: translateY(0);
+        }
+
+        .panel-hdr {
+            background: #131921;
+            border-radius: 12px 12px 0 0;
+            padding: 14px 16px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .panel-drag {
+            width: 36px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 2px;
+            position: absolute;
+            top: 7px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .panel-title {
+            color: #fff;
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .panel-title-rufus {
+            color: #FF9900;
+            font-size: 11px;
+            font-weight: 700;
+            background: rgba(255, 153, 0, 0.15);
+            padding: 2px 7px;
+            border-radius: 4px;
+        }
+
+        .panel-close {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            border: none;
+            cursor: pointer;
+            font-size: 13px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .panel-close:hover {
+            background: rgba(255, 255, 255, 0.22);
+        }
+
+        .panel-body {
+            flex: 1 1 0;
+            min-height: 0;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .panel-body::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        .panel-body::-webkit-scrollbar-thumb {
+            background: #ddd;
+            border-radius: 2px;
+        }
+
+        .panel-foot {
+            padding: 12px 16px 16px;
+            border-top: 1px solid #e8e8e8;
+            flex-shrink: 0;
+            background: #f7f8f8;
+        }
+
+        /* ── Cart ── */
+        .cart-empty {
+            padding: 40px 20px;
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .cart-empty-icon {
+            font-size: 42px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .cart-group-lbl {
+            padding: 8px 16px 4px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #565959;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            background: #f7f8f8;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .cart-img {
+            width: 42px;
+            height: 42px;
+            border-radius: 4px;
+            background: linear-gradient(135deg, #f3f3f3, #e8e8e8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+            border: 1px solid #e0e0e0;
+        }
+
+        .cart-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .cart-name {
+            font-size: 12.5px;
+            color: #007185;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .cart-sub {
+            font-size: 11px;
+            color: #565959;
+            margin-top: 2px;
+        }
+
+        .cart-prime {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 3px;
+        }
+
+        .cart-price {
+            font-size: 14px;
+            font-weight: 700;
+            color: #B12704;
+            flex-shrink: 0;
+        }
+
+        .cart-del {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #fde8e8;
+            border: 1px solid #f5c6c6;
+            cursor: pointer;
+            color: #B12704;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-del:hover {
+            background: #f5c6c6;
+        }
+
+        .cart-subtotal-box {
+            padding: 12px 16px;
+            background: #fff;
+            border-top: 1px solid #e8e8e8;
+        }
+
+        .cart-subtotal-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .cart-subtotal-lbl {
+            font-size: 14px;
+            color: #0F1111;
+        }
+
+        .cart-subtotal-val {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0F1111;
+        }
+
+        .cart-subtotal-note {
+            font-size: 11px;
+            color: #565959;
+            margin-top: 3px;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 10px;
+            background: #FFD814;
+            color: #0F1111;
+            border: 1px solid #FCD200;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: background 0.15s;
+            margin-top: 8px;
+        }
+
+        .checkout-btn:hover {
+            background: #F7CA00;
+        }
+
+        .prime-btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 7px;
+            background: #00A8E0;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        /* ── Alternatives ── */
+        .alt-ctx {
+            padding: 10px 16px 9px;
+            background: #f7f8f8;
+            border-bottom: 1px solid #e8e8e8;
+            flex-shrink: 0;
+        }
+
+        .alt-ctx-lbl {
+            font-size: 11px;
+            color: #888;
+            margin-bottom: 4px;
+        }
+
+        .alt-ctx-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .alt-ctx-img {
+            width: 32px;
+            height: 32px;
+            border-radius: 3px;
+            background: #e8e8e8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+            border: 1px solid #ddd;
+        }
+
+        .alt-ctx-name {
+            font-size: 12.5px;
+            font-weight: 500;
+            color: #0F1111;
+        }
+
+        .alt-ctx-price {
+            font-size: 12px;
+            color: #B12704;
+            font-weight: 700;
+            margin-top: 1px;
+        }
+
+        .alt-section-lbl {
+            padding: 8px 16px 4px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #565959;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            background: #f7f8f8;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .alt-loading {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .alt-loading-dots {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .alt-loading-txt {
+            font-size: 13px;
+            color: #888;
+        }
+
+        .alt-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 16px;
+            border-bottom: 1px solid #f5f5f5;
+            cursor: pointer;
+            transition: background 0.1s;
+        }
+
+        .alt-item:hover {
+            background: #f7f8f8;
+        }
+
+        .alt-item.cur {
+            background: #fffbf0;
+            border-left: 3px solid #FF9900;
+        }
+
+        .alt-img {
+            width: 48px;
+            height: 48px;
+            border-radius: 4px;
+            background: linear-gradient(135deg, #f3f3f3, #e8e8e8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            flex-shrink: 0;
+            border: 1px solid #e0e0e0;
+        }
+
+        .alt-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .alt-name {
+            font-size: 12.5px;
+            color: #007185;
+            line-height: 1.35;
+        }
+
+        .alt-brand {
+            font-size: 11px;
+            color: #565959;
+            margin-top: 2px;
+        }
+
+        .alt-note {
+            display: inline-block;
+            margin-top: 3px;
+            font-size: 10.5px;
+            color: #067D62;
+            background: #f0faf7;
+            border: 1px solid #c8e8df;
+            border-radius: 3px;
+            padding: 1px 6px;
+        }
+
+        .alt-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 5px;
+            flex-shrink: 0;
+        }
+
+        .alt-price {
+            font-size: 15px;
+            font-weight: 700;
+            color: #B12704;
+        }
+
+        .alt-cur-badge {
+            font-size: 10px;
+            font-weight: 700;
+            background: #FF9900;
+            color: #0F1111;
+            border-radius: 3px;
+            padding: 2px 7px;
+        }
+
+        .alt-sel-btn {
+            font-size: 11px;
+            color: #0F1111;
+            background: #FFD814;
+            border: 1px solid #FCD200;
+            border-radius: 3px;
+            padding: 4px 10px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 500;
+            transition: background 0.1s;
+            white-space: nowrap;
+        }
+
+        .alt-sel-btn:hover {
+            background: #F7CA00;
+        }
+
+        /* ── Toast (demo-only actions) ── */
+        .toast {
+            position: absolute;
+            left: 50%;
+            bottom: 96px;
+            transform: translate(-50%, 16px);
+            background: #232F3E;
+            color: #fff;
+            font-size: 12px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            opacity: 0;
+            transition: opacity 0.25s, transform 0.25s;
+            z-index: 80;
+            pointer-events: none;
+            white-space: nowrap;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="phone">
+
+        <!-- Amazon Header -->
+        <div class="hdr">
+            <div class="hdr-top">
+                <div class="logo-text">amazon<span>.</span></div>
+                <div class="hdr-search">
+                    <div class="hdr-search-inner" onclick="document.getElementById('inp').focus()">Ask Rufus anything...</div>
+                    <button class="hdr-search-btn" aria-label="Search" onclick="go()">🔍</button>
+                </div>
+                <div class="hdr-icons">
+                    <button class="hdr-icon-btn" onclick="clearChat()" aria-label="Clear chat">
+                        <span class="ico">↺</span>
+                        <span class="lbl">Clear</span>
+                    </button>
+                    <button class="hdr-icon-btn" onclick="openCart()" style="position:relative;" aria-label="Open cart">
+                        <span class="ico">🛒</span>
+                        <span class="lbl">Cart</span>
+                        <span class="cart-badge" id="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+            <div class="hdr-nav">
+                <button class="nav-btn active nav-rufus">Rufus AI</button>
+                <button class="nav-btn">Today's Deals</button>
+                <button class="nav-btn">Prime</button>
+                <button class="nav-btn">Grocery</button>
+                <button class="nav-btn">Customer Service</button>
+            </div>
+        </div>
+
+        <!-- Rufus branding bar -->
+        <div class="rufus-banner">
+            <div class="rufus-avatar">🐶</div>
+            <div class="rufus-banner-text">
+                <div class="rufus-banner-name">Rufus</div>
+                <div class="rufus-banner-sub">Amazon's AI shopping assistant · Powered by generative AI</div>
+            </div>
+            <div class="rufus-beta-badge">BETA</div>
+        </div>
+
+        <!-- Chat -->
+        <div class="chat" id="chat">
+            <div class="row">
+                <div class="av">🐶</div>
+                <div class="bub rufus">
+                    Hi, I'm <strong>Rufus</strong>! I can help you find the right products, compare options, and build a
+                    complete shopping list from a single request.<br><br>
+                    Try asking me something like <em>"Thanksgiving dinner for 8"</em> or <em>"chocolate birthday
+                        cake"</em> and I'll build an instant bundle.<br><br>
+                    Tap <strong>Swap ↕</strong> on any item to see alternatives!
+                </div>
+            </div>
+        </div>
+
+        <!-- Suggested chips -->
+        <div class="chips" id="chips">
+            <button class="chip" onclick="go('Thanksgiving dinner for 8')">🦃 Thanksgiving for 8</button>
+            <button class="chip" onclick="go('Chocolate birthday cake')">🎂 Birthday cake</button>
+            <button class="chip" onclick="go('Taco Tuesday night')">🌮 Taco Tuesday</button>
+            <button class="chip" onclick="go('Weekend BBQ party')">🔥 Weekend BBQ</button>
+            <button class="chip" onclick="go('Homemade pizza night')">🍕 Pizza night</button>
+            <button class="chip" onclick="go('Classic lasagna for 4')">🫙 Lasagna</button>
+            <button class="chip" onclick="go('Sushi night at home')">🍣 Sushi night</button>
+        </div>
+
+        <!-- Input -->
+        <div class="input-bar">
+            <span class="rufus-input-label">RUFUS</span>
+            <input class="txt" id="inp" aria-label="Message Rufus" placeholder="What are you shopping for today?" oninput="syncBtn()"
+                onkeydown="if(event.key==='Enter')go()" />
+            <button class="snd off" id="sbtn" onclick="go()" aria-label="Send">↑</button>
+        </div>
+        <div class="footer">Concept prototype by Tunir Mitra · Not affiliated with Amazon</div>
+
+        <!-- Overlay -->
+        <div class="panel-overlay" id="overlay" onclick="closePanels()"></div>
+
+        <!-- Cart Panel -->
+        <div class="panel" id="cart-panel">
+            <div class="panel-hdr" style="position:relative;">
+                <div class="panel-drag"></div>
+                <div class="panel-title">🛒 Shopping Cart <span class="panel-title-rufus">Rufus pick</span></div>
+                <button class="panel-close" onclick="closePanels()" aria-label="Close">✕</button>
+            </div>
+            <div class="panel-body" id="cart-body"></div>
+            <div class="panel-foot" id="cart-foot"></div>
+        </div>
+
+        <!-- Alternatives Panel -->
+        <div class="panel" id="alt-panel">
+            <div class="panel-hdr" style="position:relative;">
+                <div class="panel-drag"></div>
+                <div class="panel-title">🔄 Compare Options <span class="panel-title-rufus">Rufus</span></div>
+                <button class="panel-close" onclick="closePanels()" aria-label="Close">✕</button>
+            </div>
+            <div class="alt-ctx" id="alt-ctx"></div>
+            <div class="panel-body" id="alt-body"></div>
+        </div>
+
+        <div class="toast" id="toast" role="status"></div>
+
+    </div>
+
+    <script>
+        let cartItems = [];
+        let items = [];
+        let bundleMeta = {};
+        let added = false;
+        let busy = false;
+        let activeCard = null;
+        let altIdx = null;
+
+        /* ── Bundle data ──
+           Built in so the prototype runs anywhere with no API key.
+           Item: [emoji, name, brand, price, category, nonFood?] */
+        const BUNDLES = {
+            thanksgiving: {
+                title: 'Thanksgiving Dinner for 8', emoji: '🦃',
+                keywords: ['thanksgiving', 'turkey', 'friendsgiving', 'holiday dinner'],
+                intro: 'A classic Thanksgiving spread for 8, with turkey, sides, and pie.',
+                items: [
+                    ['🦃', 'Butterball Whole Frozen Turkey (14–16 lb)', 'Butterball', 24.99, 'turkey'],
+                    ['🥔', 'Russet Potatoes (5 lb)', 'Amazon Fresh', 3.49, 'potatoes'],
+                    ['🍞', 'Stove Top Stuffing Mix for Turkey (6 oz, 2 pack)', 'Stove Top', 4.58, 'stuffing'],
+                    ['🫐', 'Ocean Spray Jellied Cranberry Sauce (14 oz)', 'Ocean Spray', 2.29, 'cranberry sauce'],
+                    ['🫛', 'Fresh Green Beans (1 lb)', 'Amazon Fresh', 2.99, 'green beans'],
+                    ['🍠', 'Sweet Potatoes (3 lb)', 'Amazon Fresh', 3.99, 'sweet potatoes'],
+                    ['🧈', 'Land O Lakes Salted Butter (1 lb)', 'Land O Lakes', 5.49, 'butter'],
+                    ['🥣', 'McCormick Turkey Gravy Mix (3 pack)', 'McCormick', 3.87, 'gravy'],
+                    ['🥧', "Marie Callender's Pumpkin Pie (36 oz)", "Marie Callender's", 8.99, 'pie'],
+                    ['🥐', "King's Hawaiian Original Sweet Rolls (12 ct)", "King's Hawaiian", 4.29, 'dinner rolls']
+                ]
+            },
+            cake: {
+                title: 'Chocolate Birthday Cake', emoji: '🎂',
+                keywords: ['cake', 'birthday', 'chocolate', 'bake', 'baking', 'dessert'],
+                intro: 'Everything you need to bake and decorate a chocolate birthday cake.',
+                items: [
+                    ['🍫', 'Betty Crocker Super Moist Chocolate Fudge Cake Mix (13.25 oz)', 'Betty Crocker', 1.99, 'cake mix'],
+                    ['🍫', 'Duncan Hines Creamy Chocolate Frosting (16 oz)', 'Duncan Hines', 2.49, 'frosting'],
+                    ['🥚', 'Large Grade A Eggs (12 ct)', 'Amazon Fresh', 3.29, 'eggs'],
+                    ['🫗', 'Crisco Pure Vegetable Oil (48 oz)', 'Crisco', 4.99, 'vegetable oil'],
+                    ['🥛', 'Whole Milk (1 gal)', 'Amazon Fresh', 3.79, 'milk'],
+                    ['🍪', 'Nestlé Toll House Semi-Sweet Morsels (12 oz)', 'Nestlé', 3.98, 'chocolate chips'],
+                    ['🌈', 'Wilton Rainbow Chip Sprinkles (2.5 oz)', 'Wilton', 3.49, 'sprinkles'],
+                    ['🕯️', 'Wilton Birthday Candles (24 ct)', 'Wilton', 2.99, 'candles', 1],
+                    ['📜', 'Reynolds Kitchens Parchment Paper (45 sq ft)', 'Reynolds Kitchens', 4.49, 'parchment paper', 1]
+                ]
+            },
+            taco: {
+                title: 'Taco Tuesday Night', emoji: '🌮',
+                keywords: ['taco', 'mexican', 'burrito', 'fajita', 'nacho'],
+                intro: 'Taco night sorted, with protein, shells, toppings, and salsa.',
+                items: [
+                    ['🥩', '85% Lean Ground Beef (1 lb)', 'Amazon Fresh', 5.99, 'ground beef'],
+                    ['🌮', "Old El Paso Stand 'N Stuff Taco Shells (12 ct)", 'Old El Paso', 3.29, 'taco shells'],
+                    ['🫓', 'Mission Soft Taco Flour Tortillas (10 ct)', 'Mission', 2.99, 'tortillas'],
+                    ['🌶️', 'Old El Paso Original Taco Seasoning (1 oz)', 'Old El Paso', 1.19, 'taco seasoning'],
+                    ['🧀', 'Kraft Mexican Style Shredded Cheese (8 oz)', 'Kraft', 2.99, 'shredded cheese'],
+                    ['🥬', 'Iceberg Lettuce (1 head)', 'Amazon Fresh', 1.79, 'lettuce'],
+                    ['🍅', 'Roma Tomatoes (1 lb)', 'Amazon Fresh', 1.49, 'tomatoes'],
+                    ['🥑', 'Hass Avocados (4 ct)', 'Amazon Fresh', 4.99, 'avocados'],
+                    ['🫙', 'Tostitos Chunky Medium Salsa (15.5 oz)', 'Tostitos', 3.99, 'salsa'],
+                    ['🥛', 'Daisy Pure & Natural Sour Cream (16 oz)', 'Daisy', 2.49, 'sour cream']
+                ]
+            },
+            bbq: {
+                title: 'Weekend BBQ Party', emoji: '🔥',
+                keywords: ['bbq', 'barbecue', 'grill', 'burger', 'cookout', 'hot dog'],
+                intro: 'A crowd-pleasing BBQ spread with burgers, hot dogs, sides, and sauce.',
+                items: [
+                    ['🍔', '80% Lean Ground Beef Patties (8 ct, 2 lb)', 'Amazon Fresh', 11.99, 'burger patties'],
+                    ['🌭', 'Ball Park Beef Hot Dogs (8 ct)', 'Ball Park', 4.99, 'hot dogs'],
+                    ['🍞', "Nature's Own Butterbread Hamburger Buns (8 ct)", "Nature's Own", 2.99, 'buns'],
+                    ['🍖', "Sweet Baby Ray's Original Barbecue Sauce (28 oz)", "Sweet Baby Ray's", 2.99, 'bbq sauce'],
+                    ['🌽', 'Sweet Corn on the Cob (4 ct)', 'Amazon Fresh', 2.49, 'corn'],
+                    ['🧀', 'Kraft Singles American Cheese (16 slices)', 'Kraft', 3.49, 'cheese slices'],
+                    ['🫘', "Bush's Original Baked Beans (28 oz)", "Bush's Best", 2.79, 'baked beans'],
+                    ['🥔', "Lay's Classic Potato Chips (Party Size, 13 oz)", "Lay's", 5.29, 'chips'],
+                    ['🍅', 'Heinz Tomato Ketchup (32 oz)', 'Heinz', 3.99, 'ketchup'],
+                    ['⚫', 'Kingsford Original Charcoal Briquettes (16 lb)', 'Kingsford', 12.98, 'charcoal', 1]
+                ]
+            },
+            pizza: {
+                title: 'Homemade Pizza Night', emoji: '🍕',
+                keywords: ['pizza', 'calzone'],
+                intro: 'Build-your-own pizza night with dough, sauce, cheese, and toppings.',
+                items: [
+                    ['🍕', 'Pillsbury Classic Pizza Crust (13.8 oz)', 'Pillsbury', 2.99, 'pizza crust'],
+                    ['🍅', "Rao's Homemade Pizza Sauce (13 oz)", "Rao's Homemade", 5.99, 'pizza sauce'],
+                    ['🧀', 'Galbani Whole Milk Mozzarella (16 oz)', 'Galbani', 4.99, 'mozzarella'],
+                    ['🍕', 'Hormel Original Pepperoni (6 oz)', 'Hormel', 3.49, 'pepperoni'],
+                    ['🍄', 'Baby Bella Mushrooms (8 oz)', 'Amazon Fresh', 2.49, 'mushrooms'],
+                    ['🫑', 'Green Bell Pepper (1 ct)', 'Amazon Fresh', 0.89, 'bell pepper'],
+                    ['🧀', 'Kraft Grated Parmesan Cheese (8 oz)', 'Kraft', 4.49, 'parmesan'],
+                    ['🌿', 'McCormick Italian Seasoning (1.31 oz)', 'McCormick', 2.99, 'italian seasoning'],
+                    ['🫒', 'Bertolli Extra Virgin Olive Oil (16.9 oz)', 'Bertolli', 7.49, 'olive oil']
+                ]
+            },
+            lasagna: {
+                title: 'Classic Lasagna for 4', emoji: '🍝',
+                keywords: ['lasagna', 'lasagne', 'pasta', 'italian'],
+                intro: 'A classic meat lasagna for 4, with sauce, three cheeses, and sausage.',
+                items: [
+                    ['🍝', 'Barilla Oven-Ready Lasagne (9 oz)', 'Barilla', 2.49, 'lasagna noodles'],
+                    ['🍅', "Rao's Homemade Marinara Sauce (24 oz)", "Rao's Homemade", 7.99, 'marinara'],
+                    ['🧀', 'Galbani Whole Milk Ricotta (15 oz)', 'Galbani', 3.99, 'ricotta'],
+                    ['🧀', 'Sargento Shredded Mozzarella (8 oz)', 'Sargento', 3.29, 'mozzarella'],
+                    ['🌭', 'Johnsonville Mild Italian Sausage (1 lb)', 'Johnsonville', 5.49, 'italian sausage'],
+                    ['🥩', '85% Lean Ground Beef (1 lb)', 'Amazon Fresh', 5.99, 'ground beef'],
+                    ['🧀', 'Kraft Grated Parmesan Cheese (8 oz)', 'Kraft', 4.49, 'parmesan'],
+                    ['🌿', 'Fresh Basil (0.75 oz)', 'Amazon Fresh', 2.29, 'basil'],
+                    ['🧅', 'Yellow Onions (3 lb)', 'Amazon Fresh', 2.99, 'onions']
+                ]
+            },
+            sushi: {
+                title: 'Sushi Night at Home', emoji: '🍣',
+                keywords: ['sushi', 'japanese', 'salmon', 'maki', 'roll'],
+                intro: 'Roll your own sushi at home with rice, nori, fish, and fillings.',
+                items: [
+                    ['🍚', 'Nishiki Medium Grain Rice (5 lb)', 'Nishiki', 8.49, 'sushi rice'],
+                    ['🍶', 'Marukan Seasoned Rice Vinegar (12 oz)', 'Marukan', 3.49, 'rice vinegar'],
+                    ['🟩', 'Nagai Roasted Seaweed Sushi Nori (10 sheets)', 'Nagai', 5.99, 'nori'],
+                    ['🥢', 'Kikkoman Soy Sauce (10 oz)', 'Kikkoman', 2.99, 'soy sauce'],
+                    ['🐟', 'Atlantic Salmon Fillet, Skin-On (1 lb)', 'Amazon Fresh', 11.99, 'salmon'],
+                    ['🥒', 'English Cucumber (1 ct)', 'Amazon Fresh', 1.29, 'cucumber'],
+                    ['🥑', 'Hass Avocados (4 ct)', 'Amazon Fresh', 4.99, 'avocados'],
+                    ['🌿', 'S&B Prepared Wasabi (1.52 oz)', 'S&B', 3.29, 'wasabi'],
+                    ['🥚', 'Kewpie Mayonnaise (12 oz)', 'Kewpie', 6.99, 'mayonnaise'],
+                    ['🎋', "Helen's Asian Kitchen Bamboo Sushi Mat", "Helen's Asian Kitchen", 6.99, 'sushi mat', 1]
+                ]
+            }
+        };
+
+        function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
+        function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+        function price(p) { return Math.max(0.99, Math.round(p * 10) / 10 - 0.01); }
+
+        function syncBtn() {
+            const v = document.getElementById('inp').value.trim();
+            document.getElementById('sbtn').className = 'snd ' + (v && !busy ? 'on' : 'off');
+        }
+        function bottom() { const c = document.getElementById('chat'); setTimeout(() => c.scrollTop = c.scrollHeight, 30); }
+
+        let toastTimer;
+        function toast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg; t.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+        }
+
+        function addBubble(role, html) {
+            const chat = document.getElementById('chat');
+            const row = document.createElement('div');
+            row.className = 'row' + (role === 'user' ? ' user' : '');
+            if (role === 'rufus') {
+                const av = document.createElement('div'); av.className = 'av'; av.textContent = '🐶';
+                row.appendChild(av);
+            }
+            const bub = document.createElement('div');
+            bub.className = 'bub ' + role;
+            bub.innerHTML = html;
+            row.appendChild(bub);
+            chat.appendChild(row); bottom();
+        }
+
+        function showTyping() {
+            const chat = document.getElementById('chat');
+            const row = document.createElement('div'); row.className = 'row'; row.id = 'typing-row';
+            const av = document.createElement('div'); av.className = 'av'; av.textContent = '🐶';
+            const bub = document.createElement('div'); bub.className = 'bub rufus';
+            bub.innerHTML = '<div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
+            row.appendChild(av); row.appendChild(bub);
+            chat.appendChild(row); bottom();
+        }
+        function removeTyping() { const t = document.getElementById('typing-row'); if (t) t.remove(); }
+
+        function openPanel(id) {
+            document.getElementById('overlay').classList.add('show');
+            document.getElementById(id).classList.add('show');
+        }
+        function closePanels() {
+            document.getElementById('overlay').classList.remove('show');
+            ['cart-panel', 'alt-panel'].forEach(id => document.getElementById(id).classList.remove('show'));
+        }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closePanels(); });
+
+        /* ── Cart ── */
+        function openCart() { renderCart(); openPanel('cart-panel'); }
+
+        function renderCart() {
+            const body = document.getElementById('cart-body');
+            const foot = document.getElementById('cart-foot');
+            body.innerHTML = ''; foot.innerHTML = '';
+
+            if (!cartItems.length) {
+                body.innerHTML = `<div class="cart-empty"><span class="cart-empty-icon">🛒</span>Your cart is empty.<br>Ask Rufus to build a bundle!</div>`;
+                return;
+            }
+
+            const groups = {};
+            cartItems.forEach(ci => { if (!groups[ci.bundleTitle]) groups[ci.bundleTitle] = []; groups[ci.bundleTitle].push(ci); });
+
+            Object.entries(groups).forEach(([title, gitems]) => {
+                const lbl = document.createElement('div'); lbl.className = 'cart-group-lbl'; lbl.textContent = title;
+                body.appendChild(lbl);
+                gitems.forEach(ci => {
+                    const row = document.createElement('div'); row.className = 'cart-item';
+                    row.innerHTML = `
+        <div class="cart-img">${ci.emoji || '🛒'}</div>
+        <div class="cart-info">
+          <div class="cart-name">${esc(ci.name)}</div>
+          <div class="cart-sub">${esc(ci.brand || '')} · Qty ${ci.qty || 1}</div>
+          <div class="cart-prime"><span class="prime-badge">prime</span><span style="font-size:10px;color:#007185;">FREE delivery</span></div>
+        </div>
+        <div class="cart-price">$${Number(ci.price).toFixed(2)}</div>
+        <button class="cart-del" aria-label="Remove">✕</button>`;
+                    row.querySelector('.cart-del').onclick = () => {
+                        cartItems = cartItems.filter(x => x.id !== ci.id);
+                        document.getElementById('cart-count').textContent = cartItems.length;
+                        renderCart();
+                    };
+                    body.appendChild(row);
+                });
+            });
+
+            const total = cartItems.reduce((s, ci) => s + Number(ci.price) * (ci.qty || 1), 0);
+            const sub = document.createElement('div'); sub.className = 'cart-subtotal-box';
+            sub.innerHTML = `
+    <div class="cart-subtotal-row">
+      <span class="cart-subtotal-lbl">Subtotal (${cartItems.length} items):</span>
+      <span class="cart-subtotal-val">$${total.toFixed(2)}</span>
+    </div>
+    <div class="cart-subtotal-note">Eligible for FREE Shipping · Prime savings applied</div>`;
+            body.appendChild(sub);
+
+            foot.innerHTML = `
+    <button class="checkout-btn">Proceed to checkout</button>
+    <button class="prime-btn">⚡ Buy with Prime</button>`;
+            foot.querySelectorAll('button').forEach(b => b.onclick = () => toast('Prototype only · no order is placed'));
+        }
+
+        /* ── Alternatives ──
+           Generated from the current item: an organic, a budget, and a value-size option. */
+        function makeAlts(item) {
+            const base = item.name.startsWith(item.brand + ' ') ? item.name.slice(item.brand.length + 1) : item.name;
+            const cur = { name: item.name, brand: item.brand, price: item.price, emoji: item.emoji, note: 'Current pick' };
+            const alts = item.nf ? [
+                { name: `Amazon Basics ${base}`, brand: 'Amazon Basics', price: price(item.price * 0.75), note: 'Budget pick' },
+                { name: `${base}, 2 Pack`, brand: item.brand, price: price(item.price * 1.8), note: 'Value size' },
+                { name: `${base}, Premium`, brand: item.brand, price: price(item.price * 1.3), note: "Amazon's Choice" }
+            ] : [
+                { name: `365 by Whole Foods Market Organic ${base}`, brand: '365 by Whole Foods Market', price: price(item.price * 1.3), note: 'Organic' },
+                { name: `Happy Belly ${base}`, brand: 'Happy Belly', price: price(item.price * 0.78), note: 'Budget pick' },
+                { name: `Amazon Grocery ${base}, Value Pack`, brand: 'Amazon Grocery', price: price(item.price * 1.6), note: 'Value size' }
+            ];
+            return [cur, ...alts.map(a => ({ ...a, emoji: item.emoji }))];
+        }
+
+        async function openAlts(idx) {
+            altIdx = idx;
+            const item = items[idx];
+            document.getElementById('alt-ctx').innerHTML = `
+    <div class="alt-ctx-lbl">Rufus is comparing alternatives for:</div>
+    <div class="alt-ctx-row">
+      <div class="alt-ctx-img">${item.emoji || '🛒'}</div>
+      <div>
+        <div class="alt-ctx-name">${esc(item.name)}</div>
+        <div class="alt-ctx-price">$${Number(item.price).toFixed(2)}</div>
+      </div>
+    </div>`;
+            document.getElementById('alt-body').innerHTML = `
+    <div class="alt-loading">
+      <div class="alt-loading-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+      <div class="alt-loading-txt">Rufus is searching Amazon...</div>
+    </div>`;
+            openPanel('alt-panel');
+            await wait(700);
+            if (altIdx === idx) renderAlts(makeAlts(item), idx);
+        }
+
+        function renderAlts(alts, idx) {
+            const body = document.getElementById('alt-body');
+            body.innerHTML = '';
+            const lbl = document.createElement('div'); lbl.className = 'alt-section-lbl';
+            lbl.textContent = `${alts.length} options found by Rufus`;
+            body.appendChild(lbl);
+
+            alts.forEach(alt => {
+                const isCur = items[idx].name === alt.name;
+                const row = document.createElement('div'); row.className = 'alt-item' + (isCur ? ' cur' : '');
+                row.innerHTML = `
+      <div class="alt-img">${alt.emoji || '🛒'}</div>
+      <div class="alt-info">
+        <div class="alt-name">${esc(alt.name)}</div>
+        <div class="alt-brand">${esc(alt.brand || '')}</div>
+        ${alt.note && !isCur ? `<span class="alt-note">${alt.note}</span>` : ''}
+        <div style="display:flex;align-items:center;gap:4px;margin-top:4px;">
+          <span class="prime-badge">prime</span>
+          <span style="font-size:10px;color:#007185;">FREE delivery</span>
+        </div>
+      </div>
+      <div class="alt-right">
+        <div class="alt-price">$${Number(alt.price).toFixed(2)}</div>
+        ${isCur ? '<span class="alt-cur-badge">In bundle</span>' : '<button class="alt-sel-btn">Swap in</button>'}
+      </div>`;
+                if (!isCur) {
+                    row.querySelector('.alt-sel-btn').onclick = () => {
+                        items[idx] = { ...items[idx], name: alt.name, brand: alt.brand, price: alt.price, emoji: alt.emoji || items[idx].emoji };
+                        added = false;
+                        if (activeCard) refreshCard(activeCard);
+                        closePanels(); bottom();
+                        toast('Swapped · bundle total updated');
+                    };
+                }
+                body.appendChild(row);
+            });
+        }
+
+        /* ── Bundle card ── */
+        function renderBundle() {
+            added = false;
+            if (activeCard) activeCard.remove();
+            const card = document.createElement('div'); card.className = 'card';
+            activeCard = card;
+            refreshCard(card);
+            document.getElementById('chat').appendChild(card);
+            bottom();
+        }
+
+        function refreshCard(card) {
+            const sel = items.filter(i => i.on);
+            const total = sel.reduce((s, i) => s + Number(i.price) * (i.qty || 1), 0);
+            card.innerHTML = '';
+
+            const hdr = document.createElement('div'); hdr.className = 'card-hdr';
+            hdr.innerHTML = `<span class="card-emoji">${bundleMeta.emoji || '🛒'}</span>
+    <div>
+      <div class="card-title">${esc(bundleMeta.title)}</div>
+      <div class="card-meta">Rufus bundle · ${sel.length} of ${items.length} items · $${total.toFixed(2)} subtotal</div>
+    </div>`;
+            card.appendChild(hdr);
+
+            items.forEach((item, idx) => {
+                const row = document.createElement('div'); row.className = 'item' + (item.on ? '' : ' off');
+                row.innerHTML = `
+      <div class="chk ${item.on ? 'on' : 'ox'}" role="checkbox" aria-checked="${item.on}" tabindex="0">${item.on ? '<span class="chk-v">✓</span>' : ''}</div>
+      <div class="item-img">${item.emoji || '🛒'}</div>
+      <div class="item-info">
+        <div class="item-name">${esc(item.name)}</div>
+        <div class="item-brand">${esc(item.brand || '')} · Qty ${item.qty || 1}</div>
+        <div class="item-prime"><span class="prime-badge">prime</span><span class="prime-ship">FREE delivery</span></div>
+      </div>
+      <div class="item-right">
+        <div class="item-price">$${Number(item.price).toFixed(2)}</div>
+        <button class="item-swap">Swap ↕</button>
+      </div>`;
+                const chk = row.querySelector('.chk');
+                chk.onclick = () => { item.on = !item.on; added = false; refreshCard(card); };
+                chk.onkeydown = (e) => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); chk.onclick(); } };
+                row.querySelector('.item-info').onclick = () => openAlts(idx);
+                row.querySelector('.item-swap').onclick = (e) => { e.stopPropagation(); openAlts(idx); };
+                card.appendChild(row);
+            });
+
+            const foot = document.createElement('div'); foot.className = 'card-foot';
+            const btn = document.createElement('button'); btn.className = 'add-btn';
+            if (added) {
+                btn.classList.add('done');
+                btn.textContent = `✓ ${sel.length} items added to cart!`;
+            } else if (!sel.length) {
+                btn.classList.add('empty');
+                btn.textContent = 'Select items to add';
+            } else {
+                btn.classList.add('go');
+                btn.textContent = `Add ${sel.length} items to Cart · $${total.toFixed(2)}`;
+                btn.onclick = () => {
+                    added = true;
+                    sel.forEach(i => cartItems.push({ ...i, id: Date.now() + Math.random(), bundleTitle: bundleMeta.title }));
+                    document.getElementById('cart-count').textContent = cartItems.length;
+                    refreshCard(card);
+                };
+            }
+            foot.appendChild(btn);
+            card.appendChild(foot);
+        }
+
+        function clearChat() {
+            document.getElementById('chat').innerHTML = '';
+            activeCard = null; items = []; bundleMeta = {}; added = false;
+            document.getElementById('chips').style.display = 'flex';
+            addBubble('rufus', "Chat cleared! What would you like to shop for today?");
+        }
+
+        function findBundle(query) {
+            const q = query.toLowerCase();
+            return Object.keys(BUNDLES).find(key => BUNDLES[key].keywords.some(k => q.includes(k)));
+        }
+
+        async function go(text) {
+            if (busy) return;
+            const inp = document.getElementById('inp');
+            const query = (text || inp.value).trim();
+            if (!query) { inp.focus(); return; }
+            document.getElementById('chips').style.display = 'none';
+            inp.value = ''; busy = true; syncBtn();
+            addBubble('user', esc(query));
+            showTyping();
+            await wait(900 + Math.random() * 500);
+            removeTyping();
+
+            const key = findBundle(query);
+            if (key) {
+                const b = BUNDLES[key];
+                items = b.items.map(([emoji, name, brand, price, category, nf]) => ({ emoji, name, brand, price, category, nf: !!nf, qty: 1, on: true }));
+                bundleMeta = { title: b.title, emoji: b.emoji };
+                addBubble('rufus', b.intro + ' Tap <strong>Swap ↕</strong> on any item to compare alternatives.');
+                renderBundle();
+            } else {
+                addBubble('rufus', "I can't build that bundle yet. This prototype covers the meal ideas below. Tap one to try it!");
+            }
+            document.getElementById('chips').style.display = 'flex';
+            busy = false; syncBtn();
+        }
+    </script>
+</body>
+
+</html>

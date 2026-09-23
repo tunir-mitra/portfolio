@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HuskyMarket Case Study | Tunir Mitra</title>
+  <meta name="description"
+    content="HuskyMarket: a verified, escrow-backed resale and sublease marketplace for University of Washington students." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Inter:wght@400;500&family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&family=Encode+Sans:wdth,wght@75..125,400..900&family=Open+Sans:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+  <link rel="stylesheet" href="../assets/css/case-study.css" />
+  <link rel="stylesheet" href="../assets/css/themes/husky-market.css" />
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+
+<body class="page-case theme-husky">
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <a href="../index.html" class="nav__brand">Tunir Mitra</a>
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav__links">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About Me</a>
+      <a href="../index.html#experience">Experience</a>
+      <div class="dropdown">
+        <button class="dropdown__trigger" aria-haspopup="true">Projects <span class="chev">&#9662;</span></button>
+        <div class="dropdown__menu">
+          <a href="uncut-diamonds.html">Uncut Diamonds (NGO)</a>
+          <a href="husky-market.html" aria-current="page">The Husky MarketPlace</a>
+          <a href="monster-bi.html">Monster BI Case Study</a>
+          <a href="amazon-rufus.html">Amazon AI Case Study</a>
+          <a href="mercedes.html">Mercedes Case Study</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="cs-layout">
+
+    <!-- ============ INTRO ============ -->
+    <div class="cs cs-intro">
+      <section class="cs-hero hk-hero">
+        <div class="cs-hero__content">
+          <p class="cs-eyebrow">UW Dempsey Startup Challenge 2026</p>
+          <h1>Verified <em>Campus</em> Commerce</h1>
+          <p class="cs-hero__desc">HuskyMarket is a specialized resale ecosystem built exclusively for University of
+            Washington students: NetID-verified accounts, escrow-backed payments and code-confirmed pickups for buying,
+            selling and subletting on campus.</p>
+          <a href="#overview" class="cs-btn">View Case Study</a>
+        </div>
+        <div class="hk-hero__badges" aria-hidden="true">
+          <span>✓ NetID verified</span><span>🔒 Escrow</span><span>🔑 OTP pickup</span>
+        </div>
+      </section>
+
+      <div class="cs-meta">
+        <div class="cs-meta__item">
+          <div class="cs-meta__label">Context</div>
+          <div class="cs-meta__value">UW Dempsey Startup Challenge 2026</div>
+        </div>
+        <div class="cs-meta__item">
+          <div class="cs-meta__label">Product</div>
+          <div class="cs-meta__value">Student resale, rental &amp; sublease marketplace</div>
+        </div>
+        <div class="cs-meta__item">
+          <div class="cs-meta__label">Team</div>
+          <div class="cs-meta__value">HuskyMarket Team · UW Foster</div>
+        </div>
+        <div class="cs-meta__item">
+          <div class="cs-meta__label">Platform</div>
+          <div class="cs-meta__value">Mobile app (interactive prototype)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Drag to resize the right panel (desktop) -->
+    <div class="cs-resizer" role="separator" aria-orientation="vertical" aria-label="Resize panel" tabindex="0"
+      title="Drag to resize · double-click to reset">
+      <span class="cs-resizer__grip"></span>
+    </div>
+
+    <!-- ============ PROTOTYPE (sticky, right) ============ -->
+    <aside class="cs-aside" aria-label="Live prototype">
+      <div class="cs-aside__bar">
+        <span class="cs-aside__live"><span class="cs-aside__dot"></span>Live prototype</span>
+        <a class="cs-aside__open" href="prototypes/husky-market-prototype.html" target="_blank" rel="noopener">Open full screen
+          &#8599;</a>
+      </div>
+      <p class="cs-aside__hint">Sign in, bid on an item, then open <strong>Orders</strong> to try the escrow pickup.</p>
+      <iframe class="cs-aside__frame" src="prototypes/husky-market-prototype.html" title="HuskyMarket app prototype"
+        loading="lazy"></iframe>
+    </aside>
+
+    <!-- ============ CASE STUDY BODY ============ -->
+    <div class="cs cs-body">
+
+      <nav class="cs-phases" aria-label="Case study sections">
+        <a href="#overview">Overview</a>
+        <a href="#discover">Discover</a>
+        <a href="#define">Define</a>
+        <a href="#design">Design</a>
+        <a href="#business">Business</a>
+        <a href="#launch">Launch</a>
+      </nav>
+
+      <!-- OVERVIEW -->
+      <section id="overview" class="cs-section">
+        <p class="cs-phase-label">Overview</p>
+        <h2 class="cs-phase-title">Closing the Trust Gap in Campus Resale</h2>
+        <p class="cs-lead"><strong>HuskyMarket</strong> is a specialized resale ecosystem built exclusively for
+          University of Washington students. As we move into the 2026 academic cycle, we continue to solve the "trust
+          gap" in campus commerce by mandating NetID verification and using escrow-backed payments to prevent fraud,
+          ghosting, and quality disputes within the Husky community.</p>
+
+        <div class="hk-stats">
+          <div class="hk-stat"><b>60,000+</b><span>Students in the UW ecosystem</span></div>
+          <div class="hk-stat"><b>3</b><span>Ways to trade: auctions, subleases, gear rentals</span></div>
+          <div class="hk-stat"><b>100%</b><span>Of accounts verified with a UW NetID</span></div>
+          <div class="hk-stat"><b>0</b><span>Cash handoffs: every payment runs through escrow</span></div>
+        </div>
+
+        <div class="cs-goals">
+          <div class="cs-goals__col">
+            <div class="cs-goals__icon">⚠️</div>
+            <h3>The Problem</h3>
+            <ul>
+              <li>Buyers ghost after bidding, costing sellers on moving deadlines</li>
+              <li>Remote buyers can't verify condition before arriving</li>
+              <li>Venmo and cash offer no protection for high-ticket items</li>
+            </ul>
+          </div>
+          <div class="cs-goals__col">
+            <div class="cs-goals__icon">🧭</div>
+            <h3>Product Principles</h3>
+            <ul>
+              <li>Verify identity before anything else</li>
+              <li>Money only moves on proof of handoff</li>
+              <li>Every transaction builds reputation</li>
+              <li>Design around move-in and move-out deadlines</li>
+            </ul>
+          </div>
+          <div class="cs-goals__col">
+            <div class="cs-goals__icon">📱</div>
+            <h3>In the Prototype</h3>
+            <ul>
+              <li>NetID sign-in and a verified-only feed</li>
+              <li>Timed auctions with a commitment hold</li>
+              <li>Room subleases and gear rentals with deposits</li>
+              <li>Escrow orders released by a one-time pickup code</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- DISCOVER -->
+      <section id="discover" class="cs-section cs-section--tint">
+        <p class="cs-phase-label">Discover</p>
+        <h2 class="cs-phase-title">Understanding Campus Resale</h2>
+
+        <div class="cs-two hk-two-stack">
+          <div class="cs-text">
+            <h3>The Current Landscape: UW Surplus</h3>
+            <p>While the University provides a centralized surplus store, it caters primarily to institutional disposal
+              rather than the dynamic, 24/7 needs of the student body. The <strong>UW Surplus Store</strong> is the
+              current standard for university-owned item disposal, but it presents several barriers for students in
+              2026:</p>
+            <ul class="cs-list cs-list--dot">
+              <li><strong>Limited Accessibility:</strong> Often only open for a few hours a week for public sales.</li>
+              <li><strong>Logistics:</strong> No integrated peer delivery or inspection system for student-to-student
+                sales.</li>
+              <li><strong>Scope:</strong> Primarily handles university property, leaving a $2.5M gap in student-owned
+                furniture and electronics.</li>
+            </ul>
+            <a href="https://facilities.uw.edu/uw-surplus/store" target="_blank" rel="noopener" class="hk-link">Visit
+              the UW Surplus Store website &#8599;</a>
+          </div>
+
+          <div class="cs-card">
+            <div class="cs-card__bar">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 3v18h18" />
+                <path d="M7 15l4-4 3 3 5-6" />
+              </svg>
+              Where Huskies Trade Today
+            </div>
+            <div class="cs-matrix">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Channel</th>
+                    <th>Verified students</th>
+                    <th>Payment protection</th>
+                    <th>Pickup check</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Facebook Marketplace</td>
+                    <td class="no">✗</td>
+                    <td class="no">✗</td>
+                    <td class="no">✗</td>
+                  </tr>
+                  <tr>
+                    <td>Group chats &amp; Discord</td>
+                    <td class="hk-partial">~</td>
+                    <td class="no">✗</td>
+                    <td class="no">✗</td>
+                  </tr>
+                  <tr>
+                    <td>UW Surplus Store</td>
+                    <td class="yes">✓</td>
+                    <td class="hk-partial">~</td>
+                    <td class="no">✗</td>
+                  </tr>
+                  <tr class="is-rufus">
+                    <td>HuskyMarket</td>
+                    <td class="yes">✓</td>
+                    <td class="yes">✓</td>
+                    <td class="yes">✓</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="cs-h3">Problem: The Friction in Campus Resale</h3>
+        <div class="hk-problems">
+          <div class="hk-problem"><span class="hk-problem__icon">👻</span>
+            <h4>Fraud &amp; No-Shows</h4>
+            <p>"Ghosting" after bidding creates significant time waste for sellers on strict moving timelines.</p>
+          </div>
+          <div class="hk-problem"><span class="hk-problem__icon">🔍</span>
+            <h4>Opaque Quality</h4>
+            <p>Remote buyers (like incoming freshmen) have no way to verify item condition before arriving on campus.
+            </p>
+          </div>
+          <div class="hk-problem"><span class="hk-problem__icon">💸</span>
+            <h4>Payment Insecurity</h4>
+            <p>Venmo/Cash lacks protection for high-ticket items like summer subleases.</p>
+          </div>
+        </div>
+
+        <h3 class="cs-h3">The Campus Resale Calendar</h3>
+        <p class="cs-sub">Supply and demand don't show up at the same time. Seniors sell in June; the students who need
+          their furniture arrive in September. That three-month gap is why remote buyers and hard deadlines sit at the
+          center of the product.</p>
+        <ol class="hk-calendar">
+          <li class="hk-cal is-peak"><span class="hk-cal__when">June</span><b>Move-out &amp; graduation</b>
+            <p>Seniors like Caitlyn must clear apartments fast. Peak supply, strict deadlines.</p>
+          </li>
+          <li class="hk-cal"><span class="hk-cal__when">Jun – Aug</span><b>Summer subleases</b>
+            <p>Interns like Dylan need a safe way to hold deposits while they're away.</p>
+          </li>
+          <li class="hk-cal is-peak"><span class="hk-cal__when">September</span><b>Move-in</b>
+            <p>Incoming students like Abby buy furniture they couldn't see in person. Peak demand.</p>
+          </li>
+          <li class="hk-cal"><span class="hk-cal__when">Dec · Mar</span><b>Quarter breaks</b>
+            <p>Short-term gear rentals and room swaps between quarters.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- DEFINE -->
+      <section id="define" class="cs-section">
+        <p class="cs-phase-label">Define</p>
+        <h2 class="cs-phase-title">Who We're Building For</h2>
+
+        <div class="hk-personas">
+          <article class="hk-persona">
+            <div class="hk-persona__head"><span class="hk-avatar">A</span>
+              <div><b>Abby</b><span>Buyer</span></div>
+            </div>
+            <p class="hk-persona__quote">Incoming student needing reliable, as-advertised furniture.</p>
+            <dl>
+              <dt>Worries</dt>
+              <dd>Paying for something she can't see before she lands in Seattle</dd>
+              <dt>HuskyMarket gives her</dt>
+              <dd>Peer inspections, seller reviews, and escrow until she has the item in hand</dd>
+            </dl>
+          </article>
+          <article class="hk-persona">
+            <div class="hk-persona__head"><span class="hk-avatar">C</span>
+              <div><b>Caitlyn</b><span>Seller</span></div>
+            </div>
+            <p class="hk-persona__quote">Graduating senior needing to clear an apartment without no-shows.</p>
+            <dl>
+              <dt>Worries</dt>
+              <dd>Buyers who bid, then disappear days before her lease ends</dd>
+              <dt>HuskyMarket gives her</dt>
+              <dd>Timed auctions and a wallet hold that makes every bid a real commitment</dd>
+            </dl>
+          </article>
+          <article class="hk-persona">
+            <div class="hk-persona__head"><span class="hk-avatar">D</span>
+              <div><b>Dylan</b><span>Sublessor</span></div>
+            </div>
+            <p class="hk-persona__quote">Needs a secure way to hold deposits for a summer sublease.</p>
+            <dl>
+              <dt>Worries</dt>
+              <dd>Handing keys to a stranger, and deposit disputes from across the country</dd>
+              <dt>HuskyMarket gives him</dt>
+              <dd>NetID-verified tenants and deposits held in escrow, not in someone's Venmo</dd>
+            </dl>
+          </article>
+        </div>
+
+        <div class="hk-hmw">
+          <span class="cs-phase-label cs-phase-label--left">Problem statement</span>
+          <p>How might we let UW students trade high-value items with each other as confidently as buying from a store,
+            even when the seller is moving out and the buyer hasn't arrived yet?</p>
+        </div>
+      </section>
+
+      <!-- DESIGN -->
+      <section id="design" class="cs-band hk-band">
+        <p class="cs-phase-label">Design</p>
+        <h2 class="cs-phase-title">The Trust Stack</h2>
+        <p class="cs-sub cs-sub--center">Every feature answers one of the three frictions. Stacked together, they make a
+          stranger-to-stranger transaction feel like buying from a store.</p>
+
+        <div class="hk-stack">
+          <div class="hk-layer">
+            <span class="hk-layer__num">1</span>
+            <div class="hk-layer__body">
+              <h4>Identity</h4>
+              <p>Sign-in is UW NetID only, with a minimum Husky Card balance to complete verification. There are no
+                anonymous profiles.</p>
+            </div>
+            <span class="hk-solves">Solves: fraud</span>
+          </div>
+          <div class="hk-layer">
+            <span class="hk-layer__num">2</span>
+            <div class="hk-layer__body">
+              <h4>Commitment</h4>
+              <p>Bidding requires a wallet balance of the bid plus $10. A bid is a promise backed by money, which makes
+                ghosting expensive.</p>
+            </div>
+            <span class="hk-solves">Solves: no-shows</span>
+          </div>
+          <div class="hk-layer">
+            <span class="hk-layer__num">3</span>
+            <div class="hk-layer__body">
+              <h4>Condition</h4>
+              <p>Verified students can inspect items in person and vouch for them, alongside two-way reviews and seller
+                history.</p>
+            </div>
+            <span class="hk-solves">Solves: opaque quality</span>
+          </div>
+          <div class="hk-layer">
+            <span class="hk-layer__num">4</span>
+            <div class="hk-layer__body">
+              <h4>Payment</h4>
+              <p>Winning bids and sublease deposits go into escrow. The seller sees the money is there but can't touch
+                it yet.</p>
+            </div>
+            <span class="hk-solves">Solves: payment insecurity</span>
+          </div>
+          <div class="hk-layer">
+            <span class="hk-layer__num">5</span>
+            <div class="hk-layer__body">
+              <h4>Handoff</h4>
+              <p>At pickup the buyer shows a one-time code. The seller enters it, and only then is the money released.
+                No code, no payout.</p>
+            </div>
+            <span class="hk-solves">Solves: disputes</span>
+          </div>
+        </div>
+
+        <h3 class="cs-h3">Key Flows</h3>
+        <div class="cs-flows">
+          <div class="cs-wf">
+            <div>
+              <span class="cs-wf__tag">Flow 1</span>
+              <div class="cs-wf__title">Sell by Auction</div>
+              <div class="cs-wf__block">List with photos, start bid, condition and pickup zone → timed auction → highest
+                committed bid wins.</div>
+            </div>
+            <p class="cs-wf__caption">Try it: Sell tab → Post auction</p>
+          </div>
+          <div class="cs-wf">
+            <div>
+              <span class="cs-wf__tag cs-wf__tag--blue">Flow 2</span>
+              <div class="cs-wf__title">Sublease with a Deposit</div>
+              <div class="cs-wf__block">Browse verified rooms → book → deposit held in escrow until the lease ends as
+                described.</div>
+            </div>
+            <p class="cs-wf__caption">Try it: Home → Rent → Modern 1B1B</p>
+          </div>
+          <div class="cs-wf">
+            <div>
+              <span class="cs-wf__tag cs-wf__tag--green">Flow 3</span>
+              <div class="cs-wf__title">Escrow Pickup</div>
+              <div class="cs-wf__block">Meet at a campus pickup zone → buyer shows code → seller enters it → funds
+                released → both leave reviews.</div>
+            </div>
+            <p class="cs-wf__caption">Try it: Orders → Mattress Topper</p>
+          </div>
+        </div>
+
+        <h3 class="cs-h3">Feature Prioritization</h3>
+        <div class="hk-moscow">
+          <div class="hk-moscow__col hk-must">
+            <h4>Must have</h4><span>NetID verification</span><span>Escrow payments</span><span>OTP
+              pickup</span><span>Listings &amp; search</span>
+          </div>
+          <div class="hk-moscow__col hk-should">
+            <h4>Should have</h4><span>Timed auctions</span><span>Peer inspections</span><span>Two-way
+              reviews</span><span>Room subleases</span>
+          </div>
+          <div class="hk-moscow__col hk-could">
+            <h4>Could have</h4><span>Gear rentals</span><span>Dorm-to-dorm delivery</span><span>Price suggestions</span>
+          </div>
+          <div class="hk-moscow__col hk-wont">
+            <h4>Not yet</h4><span>Non-UW buyers</span><span>Shipping</span><span>Cash payments</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- BUSINESS -->
+      <section id="business" class="cs-section">
+        <p class="cs-phase-label">Business</p>
+        <h2 class="cs-phase-title">Business Model &amp; Competition</h2>
+
+        <div class="cs-two cs-two--flip">
+          <div class="cs-text">
+            <h3>Monetization Strategy (2026 Projections)</h3>
+            <p>Revenue is sequenced to follow trust. A small transaction fee keeps the first sales frictionless;
+              subscriptions only come once there's enough verified supply and demand for power sellers and buyers to pay
+              for more.</p>
+          </div>
+          <div class="cs-card">
+            <div class="cs-card__bar">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="9" />
+                <path
+                  d="M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .8-3 2s1.3 1.7 3 2 3 .8 3 2-1.3 2-3 2c-1.4 0-2.5-.5-3-1.5M12 6v2M12 16v2" />
+              </svg>
+              Revenue Phases
+            </div>
+            <table class="hk-price">
+              <thead>
+                <tr>
+                  <th>Phase</th>
+                  <th>Model</th>
+                  <th>Rate / Fee</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Phase 1:</b> MVP</td>
+                  <td>Transaction Fee</td>
+                  <td class="hk-price__fee">2% per Transaction</td>
+                </tr>
+                <tr>
+                  <td><b>Phase 2:</b> Growth</td>
+                  <td>Premium Seller</td>
+                  <td class="hk-price__fee">$9.99 / Month</td>
+                </tr>
+                <tr>
+                  <td><b>Phase 3:</b> Scale</td>
+                  <td>Premium Buyer</td>
+                  <td class="hk-price__fee">$4.99 / Month</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <h3 class="cs-h3">Competitive Benchmarking</h3>
+        <div class="hk-bench">
+          <div class="hk-bench__card is-us">
+            <div class="row">
+              <h4>HuskyMarket</h4><b>95<small>/100</small></b>
+            </div>
+            <div class="hk-bar"><i style="--w:95%"></i></div>
+            <ul>
+              <li>NetID Verified</li>
+              <li>Escrow Payments</li>
+              <li>OTP Pickup</li>
+            </ul>
+          </div>
+          <div class="hk-bench__card is-fb">
+            <div class="row">
+              <h4>FB Marketplace</h4><b>30<small>/100</small></b>
+            </div>
+            <div class="hk-bar"><i style="--w:30%"></i></div>
+            <ul>
+              <li>Anonymous Profiles</li>
+              <li>Zero Protection</li>
+              <li>High Ghosting Rate</li>
+            </ul>
+          </div>
+          <div class="hk-bench__card is-surplus">
+            <div class="row">
+              <h4>UW Surplus</h4><b>45<small>/100</small></b>
+            </div>
+            <div class="hk-bar"><i style="--w:45%"></i></div>
+            <ul>
+              <li>Official/Trusted</li>
+              <li>Highly Inconvenient</li>
+              <li>No P2P Support</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- LAUNCH -->
+      <section id="launch" class="cs-section cs-section--tint">
+        <p class="cs-phase-label">Launch</p>
+        <h2 class="cs-phase-title">Roadmap &amp; Go-to-Market</h2>
+
+        <div class="cs-two">
+          <div class="cs-card">
+            <div class="cs-card__bar">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <path d="M16 2v4M8 2v4M3 10h18" />
+              </svg>
+              2026 Roadmap &amp; Milestones
+            </div>
+            <ol class="cs-timeline">
+              <li><span class="cs-timeline__badge">Feb 2026</span>
+                <div>
+                  <h4>Health Innovation Challenge</h4>
+                  <p>Final Round.</p>
+                </div>
+              </li>
+              <li><span class="cs-timeline__badge">Apr 6</span>
+                <div>
+                  <h4>Dempsey Startup Competition</h4>
+                  <p>Application Deadline.</p>
+                </div>
+              </li>
+              <li><span class="cs-timeline__badge is-active">May 21</span>
+                <div>
+                  <h4>Dempsey Startup Final Round</h4>
+                  <p>Final Round and Awards.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div class="cs-text">
+            <h3>Go-to-Market</h3>
+            <p>HuskyMarket is scaling to meet the needs of the 60,000+ student ecosystem at UDub. A two-sided
+              marketplace lives or dies on its first transactions, so launch follows the campus calendar:</p>
+            <ol class="hk-gtm">
+              <li><b>Seed supply at move-out.</b> Recruit graduating seniors to list before they leave in June, when
+                their need to sell is urgent.</li>
+              <li><b>Convert demand at move-in.</b> Incoming students browse inspected listings over the summer and pick
+                up in September.</li>
+              <li><b>Grow through dorms and student orgs.</b> Word of mouth inside a verified community is the cheapest
+                channel we have.</li>
+            </ol>
+          </div>
+        </div>
+
+        <h3 class="cs-h3">What We'd Measure</h3>
+        <div class="hk-metrics">
+          <div class="hk-metric"><span>North star</span><b>Completed escrow handoffs</b>
+            <p>A transaction only counts once the pickup code is confirmed.</p>
+          </div>
+          <div class="hk-metric"><span>Trust</span><b>No-show rate</b>
+            <p>Share of won auctions that never reach pickup.</p>
+          </div>
+          <div class="hk-metric"><span>Quality</span><b>Disputes per 100 orders</b>
+            <p>Is "as described" actually true?</p>
+          </div>
+          <div class="hk-metric"><span>Liquidity</span><b>Time to sell</b>
+            <p>Can sellers clear out before their lease ends?</p>
+          </div>
+        </div>
+
+        <h3 class="cs-h3">Risks &amp; Mitigations</h3>
+        <div class="hk-risks">
+          <div class="hk-risk"><b>Cold start</b>
+            <p>A marketplace needs sellers and buyers at once. Launch at move-out, when supply is guaranteed.</p>
+          </div>
+          <div class="hk-risk"><b>Holding money</b>
+            <p>Escrow has compliance rules. Run it through a licensed payments provider rather than holding funds
+              directly.</p>
+          </div>
+          <div class="hk-risk"><b>Meetup safety</b>
+            <p>Suggest busy, public on-campus pickup zones by default.</p>
+          </div>
+          <div class="hk-risk"><b>University branding</b>
+            <p>"Husky" and UW marks need university approval before a public launch.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="cs-nextbar">
+        <a class="cs-next" href="monster-bi.html">
+          <span class="cs-next__label">Next case study</span>
+          <span class="cs-next__title">Monster Beverage: Analytics Roadmap &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="contact">
+    <svg class="footer__wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,35 C220,5 380,55 620,30 C860,5 1020,50 1240,28 C1340,18 1400,26 1440,30 L1440,60 L0,60 Z" />
+    </svg>
+
+    <div class="footer__inner">
+      <div class="footer__cols">
+        <div class="footer__col">
+          <a href="../index.html" class="footer__brand">Tunir Mitra</a>
+          <p>Building end to end products from concept to launch, driving innovation, improving experiences, and
+            creating tangible impact worldwide.</p>
+        </div>
+
+        <div class="footer__col">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="../about.html">About Me</a></li>
+            <li><a href="../index.html#experience">Experience</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h3>Contact</h3>
+          <ul class="footer__contact">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z" />
+              </svg>
+              <a href="tel:+12065794528">+1 (206) 579-4528</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
+              </svg>
+              <a href="mailto:tunirmitra101@gmail.com">tunirmitra101@gmail.com</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.3 18.3V10H5.7v8.3h2.6zM7 8.9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm11.3 9.4v-4.6c0-2.4-1.3-3.6-3.1-3.6-1.4 0-2.1.8-2.4 1.3V10h-2.6v8.3h2.6v-4.4c0-1.2.2-2.3 1.7-2.3s1.5 1.4 1.5 2.4v4.3h2.3z" />
+              </svg>
+              <a href="https://www.linkedin.com/in/tunir-mitra/" target="_blank"
+                rel="noopener">linkedin.com/in/tunir-mitra</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>&copy; <span id="year">2026</span> Tunir Mitra. All rights reserved.</span>
+      <a href="#" class="footer__top">Back to top &uarr;</a>
+    </div>
+  </footer>
+
+  <script src="../assets/js/site.js"></script>
+  <script src="../assets/js/case-study.js"></script>
+</body>
+
+</html>

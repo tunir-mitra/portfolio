@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Tunir Mitra</title>
+  <meta name="description" content="Tunir Mitra — Product Manager building end-to-end products from concept to launch." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/site.css" />
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <a href="#home" class="nav__brand">Tunir Mitra</a>
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav__links">
+      <a href="#home">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="#experience">Experience</a>
+      <div class="dropdown">
+        <button class="dropdown__trigger" aria-haspopup="true">Projects <span class="chev">&#9662;</span></button>
+        <div class="dropdown__menu">
+          <a href="projects/uncut-diamonds.html">Uncut Diamonds (NGO)</a>
+          <a href="projects/husky-market.html">The Husky MarketPlace</a>
+          <a href="projects/monster-bi.html">Monster BI Case Study</a>
+          <a href="projects/amazon-rufus.html">Amazon AI Case Study</a>
+          <a href="projects/mercedes.html">Mercedes Case Study</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <div class="hero__text">
+        <h1>Welcome to my<br />Product Journey</h1>
+        <p>Building end to end products from concept to launch, driving innovation, improving experiences, and creating tangible impact worldwide.</p>
+      </div>
+      <div class="hero__media">
+        <!-- Replace with: <img src="images/hero.jpg" alt="..."> -->
+        <div class="img-slot" data-label="Hero image"></div>
+      </div>
+      <svg class="divider divider--bottom" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,40 C180,10 300,55 480,35 C660,15 780,50 960,30 C1140,10 1280,45 1440,25 L1440,60 L0,60 Z" />
+      </svg>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about" id="about">
+      <h2 class="heading-sans">Behind the Resume</h2>
+      <div class="about__body">
+        <p>I build products at the intersection of people, technology, and business impact. My path into product started in engineering and accelerated at Adobe, where I spent three years leading digital transformations for Fortune 500 clients like Amazon, T-Mobile, and H&amp;M. I shipped AI-powered features, ran agile sprints, wrote PRDs, and conducted 60+ proof-of-concepts across NA, EMEA, and APAC.</p>
+        <p>I approach every product the same way: start with the user problem, align stakeholders around clear priorities, and iterate fast. What motivates me is finding clarity in ambiguity and shipping things that actually move the needle.</p>
+        <p>I'm most passionate about 0-to-1 AI product development and go-to-market strategy for technically complex products.</p>
+      </div>
+    </section>
+
+    <section class="split">
+      <div class="split__media">
+        <div class="img-slot" data-label="Photo of me presenting"></div>
+      </div>
+      <div class="split__card">
+        <p class="split__title">About 4 years of PM work experience at Adobe</p>
+        <div class="img-slot img-slot--small" data-label="Adobe logo"></div>
+      </div>
+    </section>
+
+    <!-- ============ CLIENTS ============ -->
+    <section class="clients" id="experience">
+      <h2 class="heading-serif clients__title">
+        Clients I have worked with at <span class="adobe-word">Adobe</span>
+      </h2>
+
+      <div class="clients__carousel">
+        <button class="clients__toggle" type="button" aria-label="Pause carousel"><span class="i-pause">❚❚</span><span class="i-play">▶</span></button>
+        <div class="clients__viewport" aria-roledescription="carousel" aria-label="Clients I have worked with at Adobe">
+          <div class="clients__track">
+        <article class="client">
+          <div class="img-slot client__img" data-label="T-Mobile image"></div>
+          <div class="client__body">
+            <h3 class="client__name client__name--tmobile">T&middot;Mobile</h3>
+            <dl class="star">
+              <div class="star__row"><dt><span class="star__letter">S</span>Situation</dt><dd>T-Mobile adopted the Adobe suite across the enterprise.</dd></div>
+              <div class="star__row"><dt><span class="star__letter">T</span>Task</dt><dd>Contribute to the end to end implementation of the Adobe Experience Cloud ecosystem.</dd></div>
+              <div class="star__row"><dt><span class="star__letter">A</span>Action</dt><dd>Supported development of the digital customer journey and webpages within Adobe Experience Manager, integrating Adobe Analytics, Campaign, and SEO strategies.</dd></div>
+              <div class="star__row star__row--result"><dt><span class="star__letter">R</span>Result</dt><dd>Improved search visibility, engagement, and organic traffic growth.</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="client">
+          <div class="img-slot client__img" data-label="Amazon image"></div>
+          <div class="client__body">
+            <h3 class="client__name client__name--amazon">amazon</h3>
+            <dl class="star">
+              <div class="star__row"><dt><span class="star__letter">S</span>Situation</dt><dd>Amazon needed personalized customer engagement and deeper insight into its customers.</dd></div>
+              <div class="star__row"><dt><span class="star__letter">T</span>Task</dt><dd>Deliver SMS and email marketing, analytics, and scalable content management.</dd></div>
+              <div class="star__row"><dt><span class="star__letter">A</span>Action</dt><dd>Integrated Adobe Campaign for SMS and email marketing, implemented Adobe Analytics and website analytics frameworks, and supported Adobe Commerce content management on AWS through a headless architecture.</dd></div>
+              <div class="star__row star__row--result"><dt><span class="star__letter">R</span>Result</dt><dd>Deeper customer insights that guide data driven product and marketing strategies, on scalable and flexible digital experiences.</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="client">
+          <div class="img-slot client__img" data-label="LG image"></div>
+          <div class="client__body">
+            <h3 class="client__name client__name--lg">LG</h3>
+            <dl class="star">
+              <div class="star__row"><dt><span class="star__letter">S</span>Situation</dt><dd>LG's global website and careers platform.</dd></div>
+              <div class="star__row"><dt><span class="star__letter">T</span>Task</dt><dd>Deliver end to end development of LG's global website on Adobe Experience Manager.</dd></div>
+              <div class="star__row"><dt><span class="star__letter">A</span>Action</dt><dd>Integrated secure payment gateways, optimized the cart to checkout experience, and enhanced the careers platform.</dd></div>
+              <div class="star__row star__row--result"><dt><span class="star__letter">R</span>Result</dt><dd>Faster transactions, improved usability, a streamlined candidate application journey, and increased engagement.</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="client">
+          <div class="img-slot client__img" data-label="Samsung image"></div>
+          <div class="client__body">
+            <h3 class="client__name client__name--samsung">SAMSUNG</h3>
+            <dl class="star">
+              <div class="star__row"><dt><span class="star__letter">S</span>Situation</dt><dd>Samsung's digital experience initiatives within its strategic partnership with Adobe.</dd></div>
+              <div class="star__row"><dt><span class="star__letter">T</span>Task</dt><dd>Power data driven marketing and personalized customer engagement.</dd></div>
+              <div class="star__row"><dt><span class="star__letter">A</span>Action</dt><dd>Implemented Adobe Experience Manager, Adobe Analytics, and Adobe Campaign, and leveraged analytics insights and targeted campaigns.</dd></div>
+              <div class="star__row star__row--result"><dt><span class="star__letter">R</span>Result</dt><dd>Increased website traffic, improved retention, and optimized user experiences across digital platforms.</dd></div>
+            </dl>
+          </div>
+        </article>
+          </div>
+        </div>
+      </div>
+
+      <svg class="divider divider--bottom divider--light" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,30 C200,55 360,5 560,30 C760,55 900,10 1100,30 C1260,46 1360,20 1440,30 L1440,60 L0,60 Z" />
+      </svg>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="projects" id="projects">
+      <h2 class="heading-serif projects__title">Entrepreneurship and Latest Work</h2>
+
+      <div class="projects__row projects__row--two">
+        <a class="project" id="uncut-diamonds" href="projects/uncut-diamonds.html">
+          <div class="img-slot project__bg" data-label="Uncut Diamonds image"></div>
+          <div class="project__overlay">
+            <h3 class="project__name">Uncut Diamonds (NGO)</h3>
+            <p class="project__sub">COVID-19 Entrepreneurial Initiative Supported by VIT V-Nest Incubation Center</p>
+          </div>
+        </a>
+
+        <a class="project" id="husky-marketplace" href="projects/husky-market.html">
+          <div class="img-slot project__bg" data-label="Husky MarketPlace image"></div>
+          <div class="project__overlay">
+            <h3 class="project__name">The Husky MarketPlace</h3>
+            <p class="project__sub">UW Surplus Store &amp; Upcoming Husky Marketplace Mobile App</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="projects__row projects__row--three">
+        <a class="project project--short" id="monster" href="projects/monster-bi.html">
+          <div class="img-slot project__bg" data-label="Monster image"></div>
+          <div class="project__overlay">
+            <h3 class="project__name project__name--serif">Monster BI Case Study</h3>
+          </div>
+        </a>
+
+        <a class="project project--short" id="amazon-ai" href="projects/amazon-rufus.html">
+          <div class="img-slot project__bg" data-label="Amazon AI image"></div>
+          <div class="project__overlay">
+            <h3 class="project__name project__name--serif">Amazon AI Improvement Case Study</h3>
+          </div>
+        </a>
+
+        <a class="project project--short" id="mercedes" href="projects/mercedes.html">
+          <div class="img-slot project__bg" data-label="Mercedes image"></div>
+          <div class="project__overlay">
+            <h3 class="project__name project__name--serif">Mercedes Case Study</h3>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ CONTACT ============ -->
+  <footer class="footer" id="contact">
+    <svg class="footer__wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,35 C220,5 380,55 620,30 C860,5 1020,50 1240,28 C1340,18 1400,26 1440,30 L1440,60 L0,60 Z" />
+    </svg>
+
+    <div class="footer__inner">
+      <div class="footer__cols">
+        <div class="footer__col">
+          <a href="#home" class="footer__brand">Tunir Mitra</a>
+          <p>Building end to end products from concept to launch, driving innovation, improving experiences, and creating tangible impact worldwide.</p>
+        </div>
+
+        <div class="footer__col">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h3>Contact</h3>
+          <ul class="footer__contact">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+              <a href="tel:+12065794528">+1 (206) 579-4528</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <a href="mailto:tunirmitra101@gmail.com">tunirmitra101@gmail.com</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.3 18.3V10H5.7v8.3h2.6zM7 8.9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm11.3 9.4v-4.6c0-2.4-1.3-3.6-3.1-3.6-1.4 0-2.1.8-2.4 1.3V10h-2.6v8.3h2.6v-4.4c0-1.2.2-2.3 1.7-2.3s1.5 1.4 1.5 2.4v4.3h2.3z"/></svg>
+              <a href="https://www.linkedin.com/in/tunir-mitra/" target="_blank" rel="noopener">linkedin.com/in/tunir-mitra</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>&copy; <span id="year">2026</span> Tunir Mitra. All rights reserved.</span>
+      <a href="#home" class="footer__top">Back to top &uarr;</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

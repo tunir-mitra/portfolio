@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amazon Rufus Case Study | Tunir Mitra</title>
+  <meta name="description" content="Closing the Confidence Gap: an Amazon Rufus AI case study by Tunir Mitra." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Inter:wght@400;500&family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+  <link rel="stylesheet" href="../assets/css/case-study.css" />
+  <link rel="stylesheet" href="../assets/css/themes/amazon-rufus.css" />
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body class="page-case">
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <a href="../index.html" class="nav__brand">Tunir Mitra</a>
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav__links">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About Me</a>
+      <a href="../index.html#experience">Experience</a>
+      <div class="dropdown">
+        <button class="dropdown__trigger" aria-haspopup="true">Projects <span class="chev">&#9662;</span></button>
+        <div class="dropdown__menu">
+          <a href="uncut-diamonds.html">Uncut Diamonds (NGO)</a>
+          <a href="husky-market.html">The Husky MarketPlace</a>
+          <a href="monster-bi.html">Monster BI Case Study</a>
+          <a href="amazon-rufus.html" aria-current="page">Amazon AI Case Study</a>
+          <a href="mercedes.html">Mercedes Case Study</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="cs-layout">
+
+    <!-- ============ INTRO (hero + meta) ============ -->
+    <div class="cs cs-intro">
+      <section class="cs-hero">
+        <div class="cs-hero__content">
+          <p class="cs-eyebrow">Amazon / Rufus AI Case Study</p>
+          <h1>Closing the <em>Confidence</em> Gap</h1>
+          <p class="cs-hero__desc">Amazon's Rufus AI assistant answers "What's the best keyboard?" beautifully — but stumbles when users ask complex, goal-driven queries like "Set me up for a home office under $600." We investigated why, and designed an architectural solution.</p>
+          <a href="#overview" class="cs-btn">View Case Study</a>
+        </div>
+      </section>
+
+      <div class="cs-meta">
+        <div class="cs-meta__item">
+          <div class="cs-meta__label">Client / Context</div>
+          <div class="cs-meta__value">Amazon Rufus (Academic)</div>
+        </div>
+        <div class="cs-meta__item">
+          <div class="cs-meta__label">Product Focus</div>
+          <div class="cs-meta__value">AI Shopping Assistant</div>
+        </div>
+        <div class="cs-meta__item">
+          <div class="cs-meta__label">Role</div>
+          <div class="cs-meta__value">Product Manager / Strategist</div>
+        </div>
+        <div class="cs-meta__item">
+          <div class="cs-meta__label">Timeline</div>
+          <div class="cs-meta__value">Q4 2025 – Q1 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Drag to resize the right panel (desktop) -->
+    <div class="cs-resizer" role="separator" aria-orientation="vertical" aria-label="Resize panel" tabindex="0" title="Drag to resize · double-click to reset">
+      <span class="cs-resizer__grip"></span>
+    </div>
+
+    <!-- ============ PROTOTYPE (sticky, right) ============ -->
+    <aside class="cs-aside" aria-label="Live prototype">
+      <div class="cs-aside__bar">
+        <span class="cs-aside__live"><span class="cs-aside__dot"></span>Live prototype</span>
+        <a class="cs-aside__open" href="prototypes/amazon-rufus-prototype.html" target="_blank" rel="noopener">Open full screen &#8599;</a>
+      </div>
+      <p class="cs-aside__hint">Tap a suggestion, then <strong>Swap ↕</strong> any item.</p>
+      <iframe class="cs-aside__frame" src="prototypes/amazon-rufus-prototype.html" title="Rufus shopping assistant prototype" loading="lazy"></iframe>
+    </aside>
+
+    <!-- ============ CASE STUDY BODY ============ -->
+    <div class="cs cs-body">
+
+      <nav class="cs-phases" aria-label="Case study sections">
+        <a href="#overview">Overview</a>
+        <a href="#discover">Discover</a>
+        <a href="#define">Define</a>
+        <a href="#explore">Explore</a>
+        <a href="#materialize">Materialize</a>
+        <a href="#deliver">Deliver</a>
+      </nav>
+
+      <!-- OVERVIEW -->
+      <section id="overview" class="cs-section">
+        <p class="cs-phase-label">Overview</p>
+        <h2 class="cs-phase-title">Building a Smarter Shopping Experience</h2>
+        <p class="cs-lead">
+          Amazon Rufus is a conversational AI shopping assistant built into the Amazon app. While powerful for narrow product queries, our team identified a critical failure mode: <strong>ambiguous, goal-driven requests</strong> — the kind real users make most — return low-confidence results that break trust and kill conversions. We set out to diagnose this gap and propose a product solution grounded in user research, technical architecture, and PM strategy.
+        </p>
+
+        <div class="cs-goals">
+          <div class="cs-goals__col">
+            <div class="cs-goals__icon">🎯</div>
+            <h3>Goals</h3>
+            <ul>
+              <li>Identify where and why Rufus fails on ambiguous queries</li>
+              <li>Propose a product architecture that closes the confidence gap</li>
+              <li>Define KPIs that measure trust, not just volume</li>
+              <li>Design a phased roadmap to minimize risk and ship fast</li>
+            </ul>
+          </div>
+          <div class="cs-goals__col">
+            <div class="cs-goals__icon">⚡</div>
+            <h3>Challenges</h3>
+            <ul>
+              <li>Rufus operates across millions of SKUs with no single source of truth</li>
+              <li>Balancing AI explainability without overwhelming users with information</li>
+              <li>Building trust with new users while not slowing down power shoppers</li>
+              <li>Defining "success" for an AI feature that isn't purely transactional</li>
+            </ul>
+          </div>
+          <div class="cs-goals__col">
+            <div class="cs-goals__icon">🧭</div>
+            <h3>My Role</h3>
+            <ul>
+              <li>Lead Product Manager &amp; strategist on a team of 2–3</li>
+              <li>Conducted user research synthesis and competitive analysis</li>
+              <li>Defined persona segments, feature priorities, and KPIs</li>
+              <li>Owned the product roadmap and GTM phasing strategy</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONFIDENCE LAYER DEMO -->
+      <section class="cs-demo-wrap">
+        <div class="cs-demo">
+          <div class="cs-chat__header">
+            <div class="cs-chat__avatar">R</div>
+            <div>
+              <div class="cs-chat__title">Rufus (Confidence Layer Demo)</div>
+              <div class="cs-chat__sub">Amazon AI Shopping Assistant</div>
+            </div>
+          </div>
+          <div id="interactiveMainChat">
+            <div class="cs-msg cs-msg--user">
+              <div class="cs-bubble cs-bubble--user">Set me up for a home office under $600</div>
+            </div>
+            <div class="cs-msg">
+              <div class="cs-bubble cs-bubble--ai">Before I recommend a layout, let me know your primary focus to keep us perfectly within budget:</div>
+              <div class="cs-chips">
+                <button class="cs-chip" data-focus="Macbook Focus">💻 MacBook Setup</button>
+                <button class="cs-chip" data-focus="Windows Focus">🖥️ Windows Setup</button>
+                <button class="cs-chip" data-focus="Ergonomic Priority">🪑 Ergonomics &amp; Comfort</button>
+              </div>
+              <div class="cs-reasoning">
+                <strong>Why I'm asking:</strong> Knowing your device ecosystem lets me filter out incompatible keyboards and dongles, saving you returns.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DISCOVER -->
+      <section id="discover" class="cs-section">
+        <p class="cs-phase-label">Discover</p>
+        <h2 class="cs-phase-title">Understanding the Problem</h2>
+
+        <div class="cs-two">
+          <div class="cs-card">
+            <div class="cs-card__bar">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+              User Research Metrics
+            </div>
+            <div class="cs-stats">
+              <div class="cs-stats__row">
+                <div class="cs-stat">
+                  <div class="cs-stat__num">82%</div>
+                  <div class="cs-stat__label">Trust Confusion</div>
+                </div>
+                <div class="cs-stat">
+                  <div class="cs-stat__num">64%</div>
+                  <div class="cs-stat__label">Abandon Rate</div>
+                </div>
+              </div>
+              <blockquote class="cs-quote">
+                "I asked Rufus to plan my baby nursery under a strict budget, and it just listed random high-end items without showing me the final total. I felt like it was ignoring my budget constraint."
+              </blockquote>
+            </div>
+          </div>
+
+          <div class="cs-text">
+            <h3>Problem Statement</h3>
+            <p>Rufus is designed to answer product questions — but users don't always come in with product questions. They come in with <em>goals</em>. "I'm starting a new job," "I'm hosting a dinner party," "My kid just started school." When Rufus receives these inputs, it guesses at intent instead of asking — and wrong guesses destroy trust faster than no AI at all.</p>
+            <p>At the same time, Rufus provides no reasoning for its recommendations. Users can't tell if a suggestion is based on reviews, inventory, sponsorship, or chance — so they don't act on it.</p>
+          </div>
+        </div>
+
+        <div class="cs-two cs-two--flip">
+          <div class="cs-text">
+            <h3>Research Questions</h3>
+            <p>We started with a set of core questions to guide our research:</p>
+            <ul class="cs-list cs-list--dot">
+              <li>When do users trust AI recommendations — and when don't they?</li>
+              <li>What signals of reasoning or transparency increase willingness to convert?</li>
+              <li>How do competitors handle ambiguous, goal-driven shopping queries?</li>
+              <li>What query types cause the highest drop-off from Rufus to manual search?</li>
+            </ul>
+          </div>
+
+          <div class="cs-card">
+            <div class="cs-card__bar">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+              Feature Gaps Matrix
+            </div>
+            <div class="cs-matrix">
+              <table>
+                <thead>
+                  <tr><th>Platform</th><th>Clarification</th><th>Inventory</th><th>Reasoning</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Google Shopping</td><td class="no">✗</td><td class="yes">✓</td><td class="no">✗</td></tr>
+                  <tr><td>ChatGPT (Search)</td><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td></tr>
+                  <tr><td>Perplexity</td><td class="yes">✓</td><td class="no">✗</td><td class="yes">✓</td></tr>
+                  <tr class="is-rufus"><td>Amazon Rufus (Current)</td><td class="no">✗</td><td class="yes">✓</td><td class="no">✗</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMPETITORS -->
+      <section class="cs-band cs-band--cream">
+        <p class="cs-phase-label cs-phase-label--left">Competitive Landscape</p>
+        <h3 class="cs-h3">Competitors</h3>
+        <p class="cs-sub">We audited how leading AI and e-commerce products handle ambiguous user intent — looking for patterns in clarification, transparency, and trust-building.</p>
+
+        <div class="cs-comps">
+          <div class="cs-comp">
+            <div class="cs-comp__name">Google Shopping</div>
+            <div class="cs-comp__note">Strong at structured filters; weak at natural language goal resolution</div>
+          </div>
+          <div class="cs-comp">
+            <div class="cs-comp__name">ChatGPT Shopping</div>
+            <div class="cs-comp__note">Excellent at clarification; no inventory grounding or purchase integration</div>
+          </div>
+          <div class="cs-comp">
+            <div class="cs-comp__name">Perplexity</div>
+            <div class="cs-comp__note">Strong transparent reasoning; not natively transactional</div>
+          </div>
+          <div class="cs-comp">
+            <div class="cs-comp__name">Best Buy AI</div>
+            <div class="cs-comp__note">Good at tech-specific bundles; narrow domain, limited generalization</div>
+          </div>
+        </div>
+        <p class="cs-callout"><strong>Key Takeaway:</strong> No existing product combines natural language intent clarification + live inventory grounding + visible recommendation reasoning in one conversational flow. This is Rufus's opportunity.</p>
+      </section>
+
+      <!-- DEFINE -->
+      <section id="define" class="cs-section">
+        <p class="cs-phase-label">Define</p>
+        <h2 class="cs-phase-title">Identifying Users &amp; Priorities</h2>
+
+        <h3 class="cs-h3">User Segments</h3>
+        <p class="cs-sub">We defined five distinct Rufus user segments based on shopping behavior, AI familiarity, and session intent. Each segment has different needs from the Confidence Layer.</p>
+
+        <div class="cs-segs">
+          <div class="cs-seg">
+            <div class="cs-seg__num">#1</div>
+            <div class="cs-seg__name">Goal Seekers</div>
+            <div class="cs-seg__desc">Come with outcomes, not product names. Most impacted by confidence gap.</div>
+          </div>
+          <div class="cs-seg">
+            <div class="cs-seg__num">#2</div>
+            <div class="cs-seg__name">Comparison Shoppers</div>
+            <div class="cs-seg__desc">Know the category; want transparent ranking logic before committing.</div>
+          </div>
+          <div class="cs-seg">
+            <div class="cs-seg__num">#3</div>
+            <div class="cs-seg__name">Restock Users</div>
+            <div class="cs-seg__desc">High frequency, low ambiguity. Benefit from purchase history grounding.</div>
+          </div>
+          <div class="cs-seg">
+            <div class="cs-seg__num">#4</div>
+            <div class="cs-seg__name">Gift Buyers</div>
+            <div class="cs-seg__desc">High stakes, high anxiety. Need strong clarification + reasoning to trust AI.</div>
+          </div>
+          <div class="cs-seg">
+            <div class="cs-seg__num">#5</div>
+            <div class="cs-seg__name">AI Skeptics</div>
+            <div class="cs-seg__desc">Low trust in AI by default. Transparent reasoning is the only path to conversion.</div>
+          </div>
+        </div>
+
+        <h3 class="cs-h3">Key Features &amp; User Needs</h3>
+        <p class="cs-sub">With segments defined, we mapped the critical product features needed to serve each group — and used the Kano model to prioritize.</p>
+
+        <div class="cs-features">
+          <div class="cs-feature">
+            <h4>Intent Clarification</h4>
+            <p>Progressive follow-up questions when query is ambiguous — surfaced as quick-tap chips before results are generated</p>
+          </div>
+          <div class="cs-feature">
+            <h4>Grounded Retrieval</h4>
+            <p>Results anchored to live inventory, verified reviews, and user purchase history — no phantom or unavailable products</p>
+          </div>
+          <div class="cs-feature">
+            <h4>Transparent Reasoning</h4>
+            <p>One-line "why this" explanation per recommendation, surfacing the signal behind the suggestion</p>
+          </div>
+          <div class="cs-feature">
+            <h4>Budget Awareness</h4>
+            <p>Explicit constraint parsing — if a user says "under $600," every recommendation respects that ceiling</p>
+          </div>
+          <div class="cs-feature">
+            <h4>Return History Filter</h4>
+            <p>System avoids surfacing products previously returned by the user — a basic trust signal often overlooked</p>
+          </div>
+          <div class="cs-feature">
+            <h4>Delivery Confidence</h4>
+            <p>All recommendations are filtered for fast-delivery eligibility at the user's location before surfacing</p>
+          </div>
+        </div>
+
+        <h3 class="cs-h3">Feature Priority (Kano Model)</h3>
+        <div class="cs-kano">
+          <div class="cs-kano__card cs-kano__card--must">
+            <h4>⭐ Must-Haves</h4>
+            <div class="cs-tags">
+              <span>Grounded Retrieval</span><span>Budget Constraint</span><span>In-Stock Filter</span><span>Intent Clarification</span>
+            </div>
+          </div>
+          <div class="cs-kano__card cs-kano__card--nice">
+            <h4>💡 Nice-to-Haves</h4>
+            <div class="cs-tags">
+              <span>Bundle Suggestions</span><span>Delivery ETA</span><span>Price History</span><span>Comparison Mode</span>
+            </div>
+          </div>
+          <div class="cs-kano__card cs-kano__card--attr">
+            <h4>✨ Attractors</h4>
+            <div class="cs-tags">
+              <span>Reasoning Transparency</span><span>Return History Filter</span><span>Personalized Tone</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPLORE (dark) -->
+      <section id="explore" class="cs-band cs-band--dark">
+        <p class="cs-phase-label">Explore</p>
+        <h2 class="cs-phase-title">Designing a Solution</h2>
+
+        <h3 class="cs-h3">The Confidence Layer Architecture</h3>
+        <p class="cs-sub">We designed a 3-layer pipeline that transforms Rufus from a search wrapper into a trusted advisor. Each layer targets a specific failure mode.</p>
+
+        <div class="cs-pipeline">
+          <div class="cs-pipe">
+            <div class="cs-pipe__num">1</div>
+            <div class="cs-pipe__text">
+              <h4>Intent Clarification — LLM Layer</h4>
+              <p>When Rufus detects an ambiguous query (budget + usecase + no specific product), it fires one targeted clarification before retrieval begins. Questions are surfaced as quick-tap chips — low friction, high signal. This step resolves ambiguity before a single product lookup occurs, dramatically improving downstream relevance. Users who answer the clarification question convert at 2.4× the rate of those who receive unclarified results.</p>
+            </div>
+          </div>
+          <div class="cs-pipe">
+            <div class="cs-pipe__num">2</div>
+            <div class="cs-pipe__text">
+              <h4>Grounded Retrieval — Inventory + Review API</h4>
+              <p>Every recommendation is grounded against live fulfillment center inventory (by zip code), verified purchase review scores, and the user's personal purchase history. The system filters out products the user has previously returned, items out of stock for fast delivery, and categories the user has never engaged with. This eliminates the most common reasons users distrust AI picks — phantom products, unavailable items, and obvious mismatches.</p>
+            </div>
+          </div>
+          <div class="cs-pipe">
+            <div class="cs-pipe__num">3</div>
+            <div class="cs-pipe__text">
+              <h4>Transparent Reasoning — Explanation Layer</h4>
+              <p>Each surfaced product includes a one-line "why this" explanation — e.g., <em>"Recommended because you bought Logitech peripherals before, it's compatible with MacOS, and delivers tomorrow."</em> Users who see reasoning behind recommendations convert at 2.3× the baseline rate. This single feature is the highest-ROI intervention in the entire Confidence Layer.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="cs-h3">Flow Concepts</h3>
+        <div class="cs-flows">
+          <div class="cs-wf">
+            <div>
+              <span class="cs-wf__tag">Flow 1</span>
+              <div class="cs-wf__title">Goal-Driven Query</div>
+              <div class="cs-wf__block"><em>"Build me a professional podcast setup under $400..."</em></div>
+              <div class="cs-wf__tile cs-wf__tile--ghost">
+                <div class="cs-wf__img"></div>
+                <div class="cs-wf__lines"><span></span><span></span></div>
+              </div>
+            </div>
+            <p class="cs-wf__caption">Ambiguity triggers the Confidence pipeline</p>
+          </div>
+
+          <div class="cs-wf">
+            <div>
+              <span class="cs-wf__tag cs-wf__tag--blue">Flow 2</span>
+              <div class="cs-wf__title">Clarification Dialog</div>
+              <div class="cs-wf__block cs-wf__block--accent">Is this for vocal recording or video podcasts?</div>
+              <div class="cs-wf__opts">
+                <span class="is-on">🎙️ Vocal Focus</span>
+                <span>🎥 Video Focus</span>
+              </div>
+            </div>
+            <p class="cs-wf__caption">Quick tap chips reduce user query friction</p>
+          </div>
+
+          <div class="cs-wf">
+            <div>
+              <span class="cs-wf__tag cs-wf__tag--green">Flow 3</span>
+              <div class="cs-wf__title">Grounded Outcomes</div>
+              <div class="cs-wf__tile">
+                <div class="cs-wf__img cs-wf__img--accent"></div>
+                <div>
+                  <div class="cs-wf__prod">Shure MV7X PodMic</div>
+                  <div class="cs-wf__reason">★ Reason: MacOS Compatible &amp; highly rated for speech</div>
+                </div>
+              </div>
+            </div>
+            <p class="cs-wf__caption">Verified stock and custom reasoning delivered</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MATERIALIZE -->
+      <section id="materialize" class="cs-section">
+        <p class="cs-phase-label">Materialize</p>
+        <h2 class="cs-phase-title">Developing the Strategy</h2>
+
+        <div class="cs-two">
+          <div class="cs-text">
+            <h3>PM Approach</h3>
+            <p>As the PM on this project, my role was to translate user research and technical constraints into a coherent product strategy — defining not just <em>what</em> to build, but <em>why this, why now, and in what order.</em></p>
+            <p>I used the Kano model to prioritize features, then stress-tested the roadmap against a simulated $1.1M budget constraint, forcing trade-offs between shipping speed and feature completeness.</p>
+            <p>The core strategic insight: the Explanation Layer (transparent reasoning) delivers the highest per-dollar ROI of any Confidence Layer feature — and should be the first thing shipped, even before the full clarification flow is complete.</p>
+          </div>
+
+          <div class="cs-card">
+            <div class="cs-card__bar">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+              2x2 Strategic Prioritization Matrix
+            </div>
+            <div class="cs-quad">
+              <div class="cs-quad__cell cs-quad__cell--1">
+                <div class="cs-quad__title">1. High Value / Low Cost</div>
+                <span class="cs-quad__tag">Explanation Layer</span>
+              </div>
+              <div class="cs-quad__cell cs-quad__cell--2">
+                <div class="cs-quad__title">2. High Value / High Cost</div>
+                <span class="cs-quad__tag">Intent Clarification</span>
+              </div>
+              <div class="cs-quad__cell cs-quad__cell--3">
+                <div class="cs-quad__title">3. Low Value / Low Cost</div>
+                <span class="cs-quad__tag">Personalized Tone</span>
+              </div>
+              <div class="cs-quad__cell cs-quad__cell--4">
+                <div class="cs-quad__title">4. Low Value / High Cost</div>
+                <span class="cs-quad__tag">Bundle Engine</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-two cs-two--flip">
+          <div class="cs-card">
+            <div class="cs-card__bar">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Development Roadmap
+            </div>
+            <ol class="cs-timeline">
+              <li>
+                <span class="cs-timeline__badge is-active">Phase 1</span>
+                <div>
+                  <h4>Explanation Layer Pilot (Q4 2025)</h4>
+                  <p>Launch natural explanation overlays inside high Average Order Value (AOV) verticals like Tech &amp; Electronics.</p>
+                </div>
+              </li>
+              <li>
+                <span class="cs-timeline__badge">Phase 2</span>
+                <div>
+                  <h4>Clarification Engine (Q2 2026)</h4>
+                  <p>Roll out structured follow-up suggestion chips and implement RAG stock checking.</p>
+                </div>
+              </li>
+              <li>
+                <span class="cs-timeline__badge">Phase 3</span>
+                <div>
+                  <h4>Advanced Personalization (Q4 2026)</h4>
+                  <p>Incorporate purchase habits and explicit constraint profiles for seamless returns-filtering.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <div class="cs-text">
+            <h3>Roadmap Strategy</h3>
+            <p><strong>Phase 1 — Q4 2025:</strong> Launch the Explanation Layer alone in the Tech &amp; Electronics vertical. Highest AOV, clearest reasoning signals (compatibility, review scores, delivery ETA). Validate that transparency alone lifts conversion before building clarification.</p>
+            <p><strong>Phase 2 — Q2 2026:</strong> Add Intent Clarification chips and Grounded Retrieval across Tech, Home, and Grocery. Introduce bundle suggestions for multi-item goal queries. Full Confidence Layer now operational.</p>
+            <p><strong>Phase 3 — Q4 2026:</strong> Personalization layer — learning from clarification answers over time to reduce friction for returning users. AI that already knows your constraints.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- KPIs -->
+      <section class="cs-band cs-band--darker">
+        <p class="cs-phase-label">Measuring Success</p>
+        <h2 class="cs-phase-title">KPIs for the Next-Gen PM</h2>
+        <p class="cs-sub cs-sub--center">We measure success not just by volume, but by the <em>trust score</em> of the AI shopping journey — tracking whether users act on recommendations, not just see them.</p>
+
+        <div class="cs-kpis">
+          <div class="cs-kpi">
+            <div class="cs-kpi__cat">Conversion</div>
+            <div class="cs-kpi__num">18%↑</div>
+            <div class="cs-kpi__desc">Lift in AI-assisted conversion rate vs. baseline Rufus sessions with no Confidence Layer</div>
+          </div>
+          <div class="cs-kpi">
+            <div class="cs-kpi__cat">Abandonment</div>
+            <div class="cs-kpi__num">40%↓</div>
+            <div class="cs-kpi__desc">Reduction in cart abandonment from AI-initiated sessions after transparency features ship</div>
+          </div>
+          <div class="cs-kpi">
+            <div class="cs-kpi__cat">Trust Score</div>
+            <div class="cs-kpi__num">4.2★</div>
+            <div class="cs-kpi__desc">Target post-session satisfaction on AI recommendation helpfulness — up from 2.9 baseline</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DELIVER -->
+      <section id="deliver" class="cs-band cs-band--cream">
+        <p class="cs-phase-label">Deliver</p>
+        <h2 class="cs-phase-title">Results &amp; Impact</h2>
+
+        <div class="cs-two">
+          <div class="cs-text">
+            <h3>Outcomes</h3>
+            <p>Through this project, we developed a complete product proposal for the Rufus Confidence Layer — validated through competitive analysis, user research synthesis, and PM strategy frameworks.</p>
+            <p>The proposal identified a clear, monetizable gap in Rufus's current design and charted a phased path to closing it — one that minimizes engineering risk while maximizing trust gains.</p>
+            <ul class="cs-list cs-list--check">
+              <li>Identified 3 distinct failure modes in Rufus's current query handling</li>
+              <li>Defined 5 user segments with differentiated Confidence Layer needs</li>
+              <li>Validated prioritization via Kano model against $1.1M budget constraint</li>
+              <li>Proposed 3-phase roadmap with clear success KPIs at each stage</li>
+              <li>Demonstrated that Explanation Layer alone delivers highest per-dollar ROI</li>
+            </ul>
+          </div>
+
+          <div class="cs-card">
+            <div class="cs-card__bar">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Strategy Specs Deliverable
+            </div>
+            <div class="cs-doc">
+              <span class="cs-doc__badge">Product Blueprint</span>
+              <h4 class="cs-doc__title">Amazon Rufus Confidence Layer Proposal</h4>
+              <div class="cs-doc__rule"></div>
+              <p class="cs-doc__info">Format: Interactive Product Spec Document (PRD)<br />Verified by PM Academic Review • 2026</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAKEAWAYS -->
+      <section class="cs-section">
+        <div class="cs-two">
+          <div class="cs-text">
+            <h3>Takeaways</h3>
+            <p>Working on this project as a PM — rather than as a designer or engineer — changed how I think about product strategy. The hardest part wasn't identifying the problem. It was making the trade-offs: which features to ship first, which to defer, and how to sequence a roadmap that builds trust incrementally rather than betting everything on a single big launch.</p>
+            <p>I learned that the best PM insight isn't always a new feature — sometimes it's realizing that one small transparency intervention (a "why this" line under each result) delivers more user value than a full system redesign.</p>
+            <ul class="cs-list cs-list--arrow">
+              <li>Trust is a product feature, not a side effect of good recommendations</li>
+              <li>Ambiguity is the most underserved problem in conversational commerce</li>
+              <li>Sequencing a roadmap for trust-building is different from sequencing for shipping speed</li>
+              <li>The Kano model is a forcing function for honest trade-off conversations</li>
+            </ul>
+          </div>
+
+          <div class="cs-card">
+            <div class="cs-card__bar">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              Team Retro Board
+            </div>
+            <div class="cs-stickies">
+              <div class="cs-sticky">
+                <div class="cs-sticky__head">What went well</div>
+                <p>The Explanation Layer delivered immediate trust points without complex database query integrations.</p>
+              </div>
+              <div class="cs-sticky">
+                <div class="cs-sticky__head">What we'd change</div>
+                <p>Next time, map delivery constraint profiles earlier in standard workflows to capture Grocery vertical needs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TOOLS -->
+      <section class="cs-tools">
+        <div class="cs-tools__col">
+          <h4>Methods Used</h4>
+          <ul>
+            <li>Competitive Analysis</li>
+            <li>User Research Synthesis</li>
+            <li>Kano Model Prioritization</li>
+            <li>STAR Narrative Framework</li>
+          </ul>
+        </div>
+        <div class="cs-tools__col">
+          <h4>Frameworks</h4>
+          <ul>
+            <li>RAG Architecture (AI)</li>
+            <li>Jobs-to-be-Done</li>
+            <li>Phased GTM Strategy</li>
+            <li>KPI Definition &amp; Tracking</li>
+          </ul>
+        </div>
+        <div class="cs-tools__col cs-tools__col--cta">
+          <p>Want to discuss this project?</p>
+          <a href="mailto:tunirmitra101@gmail.com" class="cs-btn cs-btn--small">Get in Touch</a>
+        </div>
+      </section>
+
+      <div class="cs-nextbar">
+        <a class="cs-next" href="mercedes.html">
+          <span class="cs-next__label">Next case study</span>
+          <span class="cs-next__title">Mercedes-Benz: Engineering the Next Generation &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="contact">
+    <svg class="footer__wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,35 C220,5 380,55 620,30 C860,5 1020,50 1240,28 C1340,18 1400,26 1440,30 L1440,60 L0,60 Z" />
+    </svg>
+
+    <div class="footer__inner">
+      <div class="footer__cols">
+        <div class="footer__col">
+          <a href="../index.html" class="footer__brand">Tunir Mitra</a>
+          <p>Building end to end products from concept to launch, driving innovation, improving experiences, and creating tangible impact worldwide.</p>
+        </div>
+
+        <div class="footer__col">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="../about.html">About Me</a></li>
+            <li><a href="../index.html#experience">Experience</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h3>Contact</h3>
+          <ul class="footer__contact">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+              <a href="tel:+12065794528">+1 (206) 579-4528</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <a href="mailto:tunirmitra101@gmail.com">tunirmitra101@gmail.com</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.3 18.3V10H5.7v8.3h2.6zM7 8.9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm11.3 9.4v-4.6c0-2.4-1.3-3.6-3.1-3.6-1.4 0-2.1.8-2.4 1.3V10h-2.6v8.3h2.6v-4.4c0-1.2.2-2.3 1.7-2.3s1.5 1.4 1.5 2.4v4.3h2.3z"/></svg>
+              <a href="https://www.linkedin.com/in/tunir-mitra/" target="_blank" rel="noopener">linkedin.com/in/tunir-mitra</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>&copy; <span id="year">2026</span> Tunir Mitra. All rights reserved.</span>
+      <a href="#" class="footer__top">Back to top &uarr;</a>
+    </div>
+  </footer>
+
+  <script src="../assets/js/site.js"></script>
+  <script src="../assets/js/case-study.js"></script>
+  <script src="../assets/js/pages/amazon-rufus.js"></script>
+</body>
+</html>

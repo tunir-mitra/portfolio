@@ -69,9 +69,14 @@ h1, h2, h3 { margin: 0; }
   text-align: center;
 }
 .hero__media img,
-.split__media img,
 .client__img,
 .project__bg { object-fit: cover; }
+img.client__img { display: block; width: 100%; }
+img.project__bg { width: 100%; height: 100%; transition: scale 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.project:hover img.project__bg { scale: 1.05; }
+/* Rufus is a flat logo: sit it below the title on its own blue */
+#amazon-ai { background: #1e92c1; }
+#amazon-ai img.project__bg { top: auto; bottom: 0; height: 72%; object-fit: contain; object-position: center bottom; }
 
 /* ============ Shared headings ============ */
 .heading-sans {
@@ -136,15 +141,19 @@ h1, h2, h3 { margin: 0; }
 .nav__links a:hover,
 .dropdown__trigger:hover { opacity: 1; }
 
-.dropdown { position: relative; }
-.dropdown__trigger {
+.dropdown { position: relative; display: flex; align-items: center; gap: 2px; }
+.dropdown__chev {
+  padding: 4px;
+  font-size: 0.7em;
+  color: var(--white);
   background: none;
   border: 0;
-  font: inherit;
+  opacity: 0.9;
   cursor: pointer;
-  padding: 0;
+  transition: opacity 0.2s, rotate 0.2s;
 }
-.chev { font-size: 0.7em; margin-left: 2px; }
+.dropdown__chev:hover { opacity: 1; }
+.dropdown.open .dropdown__chev { rotate: 180deg; }
 .dropdown__menu {
   position: absolute;
   right: 0;
@@ -235,12 +244,40 @@ h1, h2, h3 { margin: 0; }
   border-radius: 0;
 }
 .hero .divider { z-index: 1; }
+.hero__video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 40% center;
+  pointer-events: none;   /* no clicks, taps, or right-click menu */
+  user-select: none;
+}
+/* Hide any browser-supplied play overlay (e.g. iOS Low Power Mode) */
+.hero__video::-webkit-media-controls,
+.hero__video::-webkit-media-controls-start-playback-button { display: none !important; -webkit-appearance: none; }
 
 /* ============ About ============ */
 .about {
-  padding: 2.5rem clamp(16px, 4vw, 48px) 2rem;
-  background: var(--blue-500);
+  position: relative;
+  padding: 2.5rem clamp(16px, 4vw, 48px) 5rem;
+  background-color: var(--about-bg, var(--blue-500));
+  transition: background-color 0.7s ease;
 }
+/* soft hand-off into the clients section below, whatever the tone */
+.about::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5rem;
+  background: linear-gradient(transparent, var(--blue-400));
+  pointer-events: none;
+}
+.about > * { position: relative; z-index: 1; }
+/* the hero's wave sits on top of this section, so it follows the tone too */
+.hero .divider path { fill: var(--about-bg, var(--blue-500)); transition: fill 0.7s ease; }
 .about__body {
   max-width: 820px;
   margin: 1.25rem auto 0;
@@ -250,43 +287,205 @@ h1, h2, h3 { margin: 0; }
 }
 .about__body p { margin: 0 0 1rem; }
 
-/* ============ Split ============ */
-.split {
+/* ============ Behind the Resume: journey (bars left, photo right) ============ */
+.journey {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  padding: 0 4px;
-  background: var(--blue-500);
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: stretch;
+  max-width: var(--max);
+  margin: 3rem auto 1rem;
 }
-.split__media,
-.split__card { min-height: 340px; }
-.split__media .img-slot { border-radius: 0; }
-.split__card {
+.journey__list {
   position: relative;
-  background: linear-gradient(135deg, #f5f5f5 0%, #d9d9d9 55%, #ffffff 100%);
-  color: #2b2b2b;
-  padding: clamp(1.5rem, 4vw, 3.5rem);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-}
-.split__title {
-  font-family: var(--font-serif);
-  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
-  line-height: 1.35;
+  gap: 0.75rem;
   margin: 0;
-  max-width: 420px;
+  padding: 0 0 0 5rem;
+  list-style: none;
 }
-.split__card .img-slot {
-  align-self: flex-end;
-  width: 140px;
-  height: 120px;
-  min-height: 0;
-  border-color: rgba(0, 0, 0, 0.25);
-  background: rgba(0, 0, 0, 0.04);
-  border-radius: 8px;
+/* the timeline line */
+.journey__list::before {
+  content: "";
+  position: absolute;
+  top: 1.4rem;
+  bottom: 1.4rem;
+  left: 3.7rem;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.28);
 }
-.split__card .img-slot::after { color: rgba(0, 0, 0, 0.45); }
+.journey__item {
+  position: relative;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  transition: background 0.35s, border-color 0.35s, box-shadow 0.35s;
+}
+.journey__item::before {             /* timeline dot */
+  content: "";
+  position: absolute;
+  top: 1.2rem;
+  left: -1.62rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--about-bg, var(--blue-500));
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  transition: background 0.7s, box-shadow 0.3s;
+}
+.journey__item:hover { background: rgba(255, 255, 255, 0.11); }
+/* organisation logo, left of the timeline */
+.journey__logo {
+  position: absolute;
+  top: 0.45rem;
+  left: -5rem;
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  padding: 0.35rem;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0.8;
+  transition: opacity 0.3s, scale 0.3s;
+}
+.journey__logo img { width: 100%; height: 100%; object-fit: contain; }
+.journey__logo--fill { padding: 0; }
+.journey__logo--fill img { object-fit: cover; }
+.journey__item.is-open .journey__logo { opacity: 1; scale: 1.1; }
+/* thin progress bar showing when the next card opens */
+.journey__item::after {
+  content: "";
+  position: absolute;
+  left: 1.2rem;
+  right: 1.2rem;
+  bottom: 0.45rem;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.55);
+  transform-origin: left;
+  transform: scaleX(0);
+  opacity: 0;
+}
+.journey__item.is-open.is-timing::after {
+  opacity: 1;
+  animation: journey-progress var(--dur, 6000ms) linear forwards;
+}
+.journey.is-paused .journey__item.is-open::after { animation-play-state: paused; }
+@keyframes journey-progress { to { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) { .journey__item::after { display: none; } }
+.journey__item.is-open {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 14px 34px rgba(15, 28, 46, 0.22);
+}
+.journey__item.is-open::before { background: var(--white); box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.22); }
+.journey__head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.9rem;
+  width: 100%;
+  padding: 1rem 1.2rem;
+  font: inherit;
+  color: var(--white);
+  text-align: left;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.journey__when {
+  min-width: 4.6rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+.journey__item.is-open .journey__when { color: var(--white); }
+.journey__title { font-family: var(--font-display); font-size: 1.08rem; font-weight: 500; line-height: 1.35; }
+.journey__chev {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  rotate: 45deg;
+  opacity: 0.7;
+  transition: rotate 0.3s;
+}
+.journey__item.is-open .journey__chev { rotate: 225deg; }
+/* smooth height animation via grid rows */
+.journey__body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.journey__item.is-open .journey__body { grid-template-rows: 1fr; }
+.journey__body > div { overflow: hidden; }
+.journey__title small {
+  display: block;
+  margin-top: 0.15rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.72);
+}
+.journey__body > div { padding: 0 1.2rem 0 calc(1.2rem + 4.6rem + 0.9rem); }
+.journey__body > div > :last-child { margin-bottom: 1.1rem; }
+.journey__role { margin: 0.5rem 0 0.35rem; }
+.journey__role b, .journey__role span { display: block; }
+.journey__role b { font-family: var(--font-display); font-size: 0.92rem; font-weight: 500; }
+.journey__role span { font-size: 0.76rem; color: rgba(255, 255, 255, 0.72); }
+.journey__body ul { margin: 0 0 0.4rem; padding-left: 1rem; }
+.journey__body li {
+  margin-bottom: 0.4rem;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--off-white);
+}
+.journey__body li::marker { color: var(--blue-300); }
+.journey__body p { margin: 0; font-size: 0.92rem; line-height: 1.7; color: var(--off-white); }
+/* every open card is the same height: 6 lines */
+@media (min-width: 861px) {
+  .journey__body p { min-height: calc(1.7em * 6); }
+}
+.journey__media {
+  position: sticky;
+  top: calc(var(--nav-h) + 1.5rem);
+  align-self: start;
+  height: min(440px, 60vh);
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--blue-700);
+  box-shadow: 0 20px 48px rgba(15, 28, 46, 0.3);
+}
+.journey__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  scale: 1.04;
+  transition: opacity 0.6s ease, scale 1.2s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.journey__img.is-on { opacity: 1; scale: 1; }
+.journey__img.img-slot { min-height: 0; border-radius: inherit; }
+@media (max-width: 860px) {
+  .journey { grid-template-columns: 1fr; }
+  .journey__media { position: relative; top: auto; order: -1; height: auto; aspect-ratio: 16 / 10; }
+  .journey__body > div { padding-left: 1.2rem; }
+  .journey__list { padding-left: 4.2rem; }
+  .journey__list::before { left: 2.95rem; }
+  .journey__logo { left: -4.2rem; width: 2.3rem; height: 2.3rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .journey__img, .journey__body, .about, .hero .divider path { transition: none; }
+}
 
 /* ============ Clients ============ */
 .clients {
@@ -328,7 +527,7 @@ h1, h2, h3 { margin: 0; }
   width: max-content;
   will-change: transform;
 }
-.clients__track > .client { width: min(520px, 82vw); flex: none; }
+.clients__track > .client { width: min(450px, 82vw); flex: none; }
 .clients__toggle {
   position: absolute;
   top: -3.25rem;
@@ -374,7 +573,7 @@ h1, h2, h3 { margin: 0; }
   box-shadow: 0 18px 40px rgba(10, 20, 40, 0.35);
 }
 .client__img {
-  aspect-ratio: 16 / 6;
+  aspect-ratio: 15 / 8; /* matches the reference cards (~1.87:1) */
   height: auto;
   min-height: 0;
   border: 0;
@@ -383,14 +582,19 @@ h1, h2, h3 { margin: 0; }
 }
 .client__body { padding: 1.25rem 1.5rem 1.5rem; }
 .client__name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.75rem;
   margin: 0 0 1rem;
-  font-size: 1.9rem;
-  line-height: 1.2;
 }
-.client__name--tmobile { font-family: var(--font-serif); color: #ff3fa4; font-weight: 400; }
-.client__name--amazon  { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.02em; }
-.client__name--lg      { font-family: var(--font-display); font-weight: 600; }
-.client__name--samsung { font-family: var(--font-display); font-weight: 600; font-size: 1.4rem; letter-spacing: 0.08em; padding: 0.3rem 0; }
+/* Brand logos, all set to the same height so the cards line up */
+.client__logo { display: block; width: auto; height: 2.25rem; max-width: 70%; object-fit: contain; object-position: center; }
+/* Optical sizing: equal visual weight rather than equal pixel height */
+.client__logo--tmobile { height: 2rem; }
+.client__logo--amazon  { height: 2.4rem; }
+.client__logo--lg      { height: 2.3rem; }
+.client__logo--samsung { height: 1.4rem; }
 
 .star { margin: 0; display: grid; gap: 0.15rem; }
 .star__row {
@@ -497,7 +701,7 @@ h1, h2, h3 { margin: 0; }
   z-index: 1;
   height: 100%;
   padding: 1.75rem;
-  background: linear-gradient(180deg, rgba(15, 28, 46, 0.55) 0%, rgba(15, 28, 46, 0.1) 70%);
+  background: linear-gradient(180deg, rgba(10, 18, 32, 0.85) 0%, rgba(10, 18, 32, 0.55) 32%, rgba(10, 18, 32, 0) 70%);
 }
 .project__name {
   font-family: var(--font-display);
@@ -630,6 +834,9 @@ h1, h2, h3 { margin: 0; }
   .nav__links.open { display: flex; }
   .nav__links > a,
   .dropdown { width: 100%; padding: 0.6rem 0; }
+  .dropdown { flex-wrap: wrap; }
+  .dropdown__chev { padding: 4px 10px; font-size: 0.85em; }
+  .dropdown__menu { flex-basis: 100%; }
   .dropdown__menu {
     position: static;
     opacity: 1;
@@ -653,8 +860,6 @@ h1, h2, h3 { margin: 0; }
     margin: 2rem calc(-1 * clamp(16px, 4vw, 48px)) -4.5rem;
     clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 100%);
   }
-  .split { grid-template-columns: 1fr; }
-  .split__media, .split__card { min-height: 260px; }
   .star__row { grid-template-columns: 1fr; gap: 0.3rem; }
   .projects__row--two,
   .projects__row--three { grid-template-columns: 1fr; }
@@ -771,10 +976,11 @@ h1, h2, h3 { margin: 0; }
   .js .hero__media {
     opacity: 1 !important;
     transform: none !important;
-    clip-path: none !important;
     animation: none !important;
     transition: none !important;
   }
+  /* Undo reveal clipping, but keep the hero's designed slant */
+  .js .reveal { clip-path: none !important; }
   .clients__title.in .adobe-word { animation: none; }
   .scroll-progress { display: none; }
 }

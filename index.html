@@ -25,7 +25,7 @@
       <a href="about.html">About Me</a>
       <a href="#experience">Experience</a>
       <div class="dropdown">
-        <button class="dropdown__trigger" aria-haspopup="true">Projects <span class="chev">&#9662;</span></button>
+        <a class="dropdown__trigger" href="#projects">Projects</a><button class="dropdown__chev" type="button" aria-label="Show project list" aria-expanded="false">&#9662;</button>
         <div class="dropdown__menu">
           <a href="projects/uncut-diamonds.html">Uncut Diamonds (NGO)</a>
           <a href="projects/husky-market.html">The Husky MarketPlace</a>
@@ -45,8 +45,10 @@
         <p>Building end to end products from concept to launch, driving innovation, improving experiences, and creating tangible impact worldwide.</p>
       </div>
       <div class="hero__media">
-        <!-- Replace with: <img src="images/hero.jpg" alt="..."> -->
-        <div class="img-slot" data-label="Hero image"></div>
+        <!-- Decorative background loop: no controls, not interactive -->
+        <video class="hero__video" src="assets/media/home/hero.mp4" poster="assets/media/home/hero-poster.jpg"
+          autoplay muted loop playsinline preload="auto" disablepictureinpicture disableremoteplayback
+          tabindex="-1" aria-hidden="true"></video>
       </div>
       <svg class="divider divider--bottom" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
         <path d="M0,40 C180,10 300,55 480,35 C660,15 780,50 960,30 C1140,10 1280,45 1440,25 L1440,60 L0,60 Z" />
@@ -61,15 +63,52 @@
         <p>I approach every product the same way: start with the user problem, align stakeholders around clear priorities, and iterate fast. What motivates me is finding clarity in ambiguity and shipping things that actually move the needle.</p>
         <p>I'm most passionate about 0-to-1 AI product development and go-to-market strategy for technically complex products.</p>
       </div>
-    </section>
 
-    <section class="split">
-      <div class="split__media">
-        <div class="img-slot" data-label="Photo of me presenting"></div>
-      </div>
-      <div class="split__card">
-        <p class="split__title">About 4 years of PM work experience at Adobe</p>
-        <div class="img-slot img-slot--small" data-label="Adobe logo"></div>
+      <div class="journey">
+        <ol class="journey__list">
+          <li class="journey__item" data-tone="#3f3270" data-duration="6000">
+            <span class="journey__logo journey__logo--fill"><img src="assets/media/home/logo-uwmed-mark.png" alt="UW Medicine" /></span>
+            <button class="journey__head" type="button" aria-expanded="false" aria-controls="journey-0" data-i="0">
+              <span class="journey__when">Now</span>
+              <span class="journey__title">Currently a TPM at UW Medicine</span>
+              <span class="journey__chev" aria-hidden="true"></span>
+            </button>
+            <div class="journey__body" id="journey-0"><div><p>I'm leading the pilot of agentic AI tools like PM Lite and NebulaONE across 10+ healthcare projects, cutting setup time by 20% with 100% adoption. I've also redesigned intake and ticket workflows in Power Automate, reducing reporting effort by 40% and saving teams more than 15 hours every single week across projects.</p></div></div>
+          </li>
+          <li class="journey__item" data-tone="#5e4530" data-duration="6000">
+            <span class="journey__logo"><img src="assets/media/home/logo-uw-mark.png" alt="University of Washington" /></span>
+            <button class="journey__head" type="button" aria-expanded="false" aria-controls="journey-1" data-i="1">
+              <span class="journey__when">2026</span>
+              <span class="journey__title">Research and Teaching Assistant (LLM)</span>
+              <span class="journey__chev" aria-hidden="true"></span>
+            </button>
+            <div class="journey__body" id="journey-1"><div><p>As a research and teaching assistant, I support the course Building and Applying Large Language Models at the University of Washington Information School. Reviewing how students approach LLM problems has made me much better at explaining technical ideas simply and spotting exactly where people tend to get stuck along the way.</p></div></div>
+          </li>
+          <li class="journey__item is-open" data-tone="#7a3a3f" data-duration="7500">
+            <span class="journey__logo"><img src="assets/media/home/logo-adobe-mark.png" alt="Adobe" /></span>
+            <button class="journey__head" type="button" aria-expanded="true" aria-controls="journey-2" data-i="2">
+              <span class="journey__when">2022–25</span>
+              <span class="journey__title">About 4 years of PM experience</span>
+              <span class="journey__chev" aria-hidden="true"></span>
+            </button>
+            <div class="journey__body" id="journey-2"><div><p>Most of it was at Adobe, where I led the product strategy and 0-to-1 launch of ACS Copilot, an internal GenAI tool that reached 85% adoption in 14 days while improving model accuracy by 15%. Before that, I built an AI metadata tagging system that classified 200TB+ of assets and cut content migration effort by 30% across global brands.</p></div></div>
+          </li>
+          <li class="journey__item" data-tone="#3a4863" data-duration="6000">
+            <span class="journey__logo journey__logo--fill"><img src="assets/media/home/logo-uncut-mark.png" alt="Uncut Diamonds" /></span>
+            <button class="journey__head" type="button" aria-expanded="false" aria-controls="journey-3" data-i="3">
+              <span class="journey__when">2021–22</span>
+              <span class="journey__title">Co-founded an upskilling platform</span>
+              <span class="journey__chev" aria-hidden="true"></span>
+            </button>
+            <div class="journey__body" id="journey-3"><div><p>During Covid, I co-founded Uncut Diamonds, a 0-to-1 upskilling and freelance marketplace for people who had lost their jobs during the pandemic. I owned the product vision, roadmap, and go-to-market, onboarding 330+ job seekers in our first 45 days and using GA4 to find and fix the exact points where they dropped off.</p></div></div>
+          </li>
+        </ol>
+        <figure class="journey__media">
+          <img class="journey__img" src="assets/media/home/journey-uwmed.jpg" alt="Tunir outside UW Medicine" loading="lazy" style="object-position: 50% 40%" />
+          <img class="journey__img" src="assets/media/home/journey-ta.jpg" alt="Tunir presenting a migration journey on a screen" loading="lazy" style="object-position: 50% 45%" />
+          <img class="journey__img is-on" src="assets/media/home/journey-adobe.jpg" alt="Mapping ideas on a whiteboard during a product workshop" loading="lazy" style="object-position: 50% 50%" />
+          <img class="journey__img" src="assets/media/home/journey-uncut.jpg" alt="Group photo at an Uncut Diamonds community event" loading="lazy" style="object-position: 50% 55%" />
+        </figure>
       </div>
     </section>
 
@@ -84,9 +123,9 @@
         <div class="clients__viewport" aria-roledescription="carousel" aria-label="Clients I have worked with at Adobe">
           <div class="clients__track">
         <article class="client">
-          <div class="img-slot client__img" data-label="T-Mobile image"></div>
+          <img class="client__img" src="assets/media/home/client-tmobile.jpg" alt="T-Mobile brand artwork" loading="lazy" width="1600" height="900" />
           <div class="client__body">
-            <h3 class="client__name client__name--tmobile">T&middot;Mobile</h3>
+            <h3 class="client__name"><img class="client__logo client__logo--tmobile" src="assets/media/home/logo-tmobile.png" alt="T-Mobile" width="179" height="44" /></h3>
             <dl class="star">
               <div class="star__row"><dt><span class="star__letter">S</span>Situation</dt><dd>T-Mobile adopted the Adobe suite across the enterprise.</dd></div>
               <div class="star__row"><dt><span class="star__letter">T</span>Task</dt><dd>Contribute to the end to end implementation of the Adobe Experience Cloud ecosystem.</dd></div>
@@ -97,9 +136,9 @@
         </article>
 
         <article class="client">
-          <div class="img-slot client__img" data-label="Amazon image"></div>
+          <img class="client__img" src="assets/media/home/client-amazon.jpg" alt="Amazon fulfillment center with Prime delivery vehicles" loading="lazy" width="1600" height="916" />
           <div class="client__body">
-            <h3 class="client__name client__name--amazon">amazon</h3>
+            <h3 class="client__name"><img class="client__logo client__logo--amazon" src="assets/media/home/logo-amazon.png" alt="Amazon" width="171" height="55" /></h3>
             <dl class="star">
               <div class="star__row"><dt><span class="star__letter">S</span>Situation</dt><dd>Amazon needed personalized customer engagement and deeper insight into its customers.</dd></div>
               <div class="star__row"><dt><span class="star__letter">T</span>Task</dt><dd>Deliver SMS and email marketing, analytics, and scalable content management.</dd></div>
@@ -110,9 +149,9 @@
         </article>
 
         <article class="client">
-          <div class="img-slot client__img" data-label="LG image"></div>
+          <img class="client__img" src="assets/media/home/client-lg.jpg" alt="LG smart home showroom" loading="lazy" width="1600" height="1066" />
           <div class="client__body">
-            <h3 class="client__name client__name--lg">LG</h3>
+            <h3 class="client__name"><img class="client__logo client__logo--lg" src="assets/media/home/logo-lg.png" alt="LG" width="159" height="68" /></h3>
             <dl class="star">
               <div class="star__row"><dt><span class="star__letter">S</span>Situation</dt><dd>LG's global website and careers platform.</dd></div>
               <div class="star__row"><dt><span class="star__letter">T</span>Task</dt><dd>Deliver end to end development of LG's global website on Adobe Experience Manager.</dd></div>
@@ -123,9 +162,9 @@
         </article>
 
         <article class="client">
-          <div class="img-slot client__img" data-label="Samsung image"></div>
+          <img class="client__img" src="assets/media/home/client-samsung.jpg" alt="Samsung pavilion at CES 2025" loading="lazy" width="1280" height="720" />
           <div class="client__body">
-            <h3 class="client__name client__name--samsung">SAMSUNG</h3>
+            <h3 class="client__name"><img class="client__logo client__logo--samsung" src="assets/media/home/logo-samsung.png" alt="Samsung" width="151" height="30" /></h3>
             <dl class="star">
               <div class="star__row"><dt><span class="star__letter">S</span>Situation</dt><dd>Samsung's digital experience initiatives within its strategic partnership with Adobe.</dd></div>
               <div class="star__row"><dt><span class="star__letter">T</span>Task</dt><dd>Power data driven marketing and personalized customer engagement.</dd></div>
@@ -149,7 +188,7 @@
 
       <div class="projects__row projects__row--two">
         <a class="project" id="uncut-diamonds" href="projects/uncut-diamonds.html">
-          <div class="img-slot project__bg" data-label="Uncut Diamonds image"></div>
+          <img class="project__bg" src="assets/media/home/project-uncut.jpg" alt="" loading="lazy" />
           <div class="project__overlay">
             <h3 class="project__name">Uncut Diamonds (NGO)</h3>
             <p class="project__sub">COVID-19 Entrepreneurial Initiative Supported by VIT V-Nest Incubation Center</p>
@@ -157,7 +196,7 @@
         </a>
 
         <a class="project" id="husky-marketplace" href="projects/husky-market.html">
-          <div class="img-slot project__bg" data-label="Husky MarketPlace image"></div>
+          <img class="project__bg" src="assets/media/home/project-husky.jpg" alt="" loading="lazy" />
           <div class="project__overlay">
             <h3 class="project__name">The Husky MarketPlace</h3>
             <p class="project__sub">UW Surplus Store &amp; Upcoming Husky Marketplace Mobile App</p>
@@ -167,21 +206,21 @@
 
       <div class="projects__row projects__row--three">
         <a class="project project--short" id="monster" href="projects/monster-bi.html">
-          <div class="img-slot project__bg" data-label="Monster image"></div>
+          <img class="project__bg" src="assets/media/monster/can.jpg" alt="" loading="lazy" />
           <div class="project__overlay">
             <h3 class="project__name project__name--serif">Monster BI Case Study</h3>
           </div>
         </a>
 
         <a class="project project--short" id="amazon-ai" href="projects/amazon-rufus.html">
-          <div class="img-slot project__bg" data-label="Amazon AI image"></div>
+          <img class="project__bg" src="assets/media/home/project-amazon.jpg" alt="" loading="lazy" />
           <div class="project__overlay">
             <h3 class="project__name project__name--serif">Amazon AI Improvement Case Study</h3>
           </div>
         </a>
 
         <a class="project project--short" id="mercedes" href="projects/mercedes.html">
-          <div class="img-slot project__bg" data-label="Mercedes image"></div>
+          <img class="project__bg" src="assets/media/home/project-mercedes.jpg" alt="" loading="lazy" />
           <div class="project__overlay">
             <h3 class="project__name project__name--serif">Mercedes Case Study</h3>
           </div>
@@ -209,6 +248,7 @@
             <li><a href="about.html">About Me</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="https://github.com/tunirmitrausa-glitch" target="_blank" rel="noopener">GitHub</a></li>
           </ul>
         </div>
 
@@ -217,7 +257,7 @@
           <ul class="footer__contact">
             <li>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
-              <a href="tel:+12065794528">+1 (206) 579-4528</a>
+              <a href="tel:+12067784292">+1 (206) 778-4292</a>
             </li>
             <li>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -226,6 +266,10 @@
             <li>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.3 18.3V10H5.7v8.3h2.6zM7 8.9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm11.3 9.4v-4.6c0-2.4-1.3-3.6-3.1-3.6-1.4 0-2.1.8-2.4 1.3V10h-2.6v8.3h2.6v-4.4c0-1.2.2-2.3 1.7-2.3s1.5 1.4 1.5 2.4v4.3h2.3z"/></svg>
               <a href="https://www.linkedin.com/in/tunir-mitra/" target="_blank" rel="noopener">linkedin.com/in/tunir-mitra</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+              <a href="https://github.com/tunirmitrausa-glitch" target="_blank" rel="noopener">github.com/tunirmitrausa-glitch</a>
             </li>
           </ul>
         </div>

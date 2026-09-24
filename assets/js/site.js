@@ -8,14 +8,17 @@ toggle.addEventListener("click", () => {
   toggle.setAttribute("aria-expanded", open);
 });
 
-// Projects dropdown: click to toggle (needed on touch / mobile)
-dropdown.querySelector(".dropdown__trigger").addEventListener("click", (e) => {
+// Projects: the word is a link to the projects section; the ▾ toggles the list
+// (hover/focus opens it on desktop; the ▾ is how touch users open it)
+const chev = dropdown.querySelector(".dropdown__chev");
+chev.addEventListener("click", (e) => {
   e.stopPropagation();
-  dropdown.classList.toggle("open");
+  const open = dropdown.classList.toggle("open");
+  chev.setAttribute("aria-expanded", open);
 });
 
 document.addEventListener("click", (e) => {
-  if (!dropdown.contains(e.target)) dropdown.classList.remove("open");
+  if (!dropdown.contains(e.target)) { dropdown.classList.remove("open"); chev.setAttribute("aria-expanded", "false"); }
 });
 
 // Close menus after choosing a link
@@ -36,8 +39,8 @@ const revealGroups = [
   // Home
   [".about .heading-sans", "up", 0],
   [".about__body p", "up", 0.15],
-  [".split__media", "left", 0],
-  [".split__card", "right", 0],
+  [".journey__item", "left", 0.1],
+  [".journey__media", "right", 0],
   [".clients__title", "zoom", 0],
   [".clients__viewport", "up", 0],
   [".projects__title", "up", 0],
@@ -304,6 +307,68 @@ onScroll();
   new ResizeObserver(() => { measure(); wrap(); paint(); }).observe(track);
   measure();
   requestAnimationFrame((t) => { last = t; requestAnimationFrame(frame); });
+})();
+
+// ============ Behind the Resume: auto-advancing cards, photo + tone follow ============
+(function journey() {
+  const root = document.querySelector(".journey");
+  if (!root) return;
+  const items = [...root.querySelectorAll(".journey__item")];
+  const imgs = [...root.querySelectorAll(".journey__img")];
+  let current = items.findIndex((it) => it.classList.contains("is-open"));
+  let timer = null, hovering = false, focused = false, visible = false;
+
+  function open(i) {
+    current = i;
+    items.forEach((it, k) => {
+      it.classList.toggle("is-open", k === i);
+      it.querySelector(".journey__head").setAttribute("aria-expanded", k === i);
+    });
+    imgs.forEach((im, k) => im.classList.toggle("is-on", k === i));
+    const tone = items[i].dataset.tone;
+    if (tone) document.documentElement.style.setProperty("--about-bg", tone);
+    schedule();
+  }
+
+  // Each card stays open for its own duration (Adobe a little longer)
+  function schedule() {
+    clearTimeout(timer);
+    const it = items[current];
+    const paused = reduceMotion || hovering || focused || !visible;
+    root.classList.toggle("is-paused", paused);
+    // restart the progress bar on the open card
+    it.style.setProperty("--dur", (it.dataset.duration || 6000) + "ms");
+    it.classList.remove("is-timing"); void it.offsetWidth; it.classList.add("is-timing");
+    if (paused) return;
+    timer = setTimeout(() => open((current + 1) % items.length), Number(it.dataset.duration) || 6000);
+  }
+
+  root.addEventListener("click", (e) => {
+    const head = e.target.closest(".journey__head");
+    if (head) open(Number(head.dataset.i));
+  });
+  // Pause while the reader is looking at or using it
+  root.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") { hovering = true; schedule(); } });
+  root.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") { hovering = false; schedule(); } });
+  root.addEventListener("focusin", () => { focused = true; schedule(); });
+  root.addEventListener("focusout", () => { focused = false; schedule(); });
+  // Only run while the section is on screen
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; schedule(); }, { threshold: 0.3 }).observe(root);
+
+  open(current < 0 ? 0 : current);
+})();
+
+// ============ Hero video: always playing, never interactive ============
+(function heroVideo() {
+  const v = document.querySelector(".hero__video");
+  if (!v) return;
+  v.muted = true; // required for autoplay in every browser
+  const play = () => v.play().catch(() => {});
+  // Resume if the browser pauses it (tab switch, power saving, stall)
+  v.addEventListener("pause", () => { if (!document.hidden) play(); });
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) play(); });
+  v.addEventListener("contextmenu", (e) => e.preventDefault());
+  play();
 })();
 
 // Keep the copyright year current
